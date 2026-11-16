@@ -16,7 +16,7 @@
 }
 .title {
   font-size: 44px;
-  line-height: normal;
+  line-height: 53px;
 }
 .sub {
   font-size: 16px;
@@ -85,6 +85,7 @@
 
 /* Bracelet tucked under the last question, then the logo */
 .decor {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

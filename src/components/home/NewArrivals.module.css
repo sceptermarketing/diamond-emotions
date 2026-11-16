@@ -25,7 +25,7 @@
 }
 .title {
   font-size: 48px;
-  line-height: normal;
+  line-height: 58px;
 }
 
 .track {
@@ -68,7 +68,7 @@
 .code {
   font-size: 16px;
   font-weight: 700;
-  line-height: normal;
+  line-height: 18px;
 }
 .text {
   font-size: 14px;

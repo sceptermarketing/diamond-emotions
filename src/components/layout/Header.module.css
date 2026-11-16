@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 8px var(--pad);
+  height: 38px;
+  padding: 0 var(--edge);
   background: var(--forest);
   color: var(--topbar-text);
   font-family: var(--font-inter);
@@ -39,6 +40,8 @@
   right: 0;
   display: grid;
   grid-template-columns: 515px 1fr;
+  /* keeps the logo and menu in the centered 1440 column (percentages here resolve against the full-width bar) */
+  padding: 0 var(--g);
   pointer-events: none;
 }
 .bar > * {

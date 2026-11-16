@@ -11,7 +11,7 @@
   flex-direction: column;
   gap: 12px;
   padding: 13px 0;
-  border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 -1px 0 var(--line);
 }
 .head {
   display: flex;
@@ -34,7 +34,7 @@
 }
 
 .light .item {
-  border-bottom-color: rgba(229, 229, 229, 0.13);
+  box-shadow: inset 0 -1px 0 rgba(229, 229, 229, 0.13);
 }
 .light .title,
 .light .text {

@@ -6,7 +6,7 @@
 }
 .photo {
   flex-shrink: 0;
-  width: 41.667%;
+  width: calc(var(--g) + var(--col) * 0.41667);
   object-fit: cover;
 }
 .content {
@@ -15,7 +15,7 @@
   justify-content: center;
   gap: 16px;
   flex: 1 0 0;
-  padding: 80px;
+  padding: 80px calc(var(--g) + 80px) 80px 80px;
 }
 .content > * {
   max-width: 680px;

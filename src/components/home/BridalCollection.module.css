@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   flex: 1 0 0;
-  padding: 80px;
+  min-width: 0; /* the 495px copy overflows the padding, as in Figma */
+  padding: 80px 80px 80px calc(var(--g) + 80px);
 }
 .copy {
   display: flex;
@@ -29,15 +30,13 @@
   justify-content: center;
   gap: 16px;
   flex-shrink: 0;
-  width: 58.333%;
-  padding: 64px;
+  width: calc(var(--g) + var(--col) * 0.58333);
+  padding: 64px calc(var(--g) + 64px) 64px 64px;
   background: var(--mist);
 }
 .row {
   width: 100%;
   max-width: 712px;
-  margin-left: auto !important;
-  margin-right: auto !important;
   display: grid;
   gap: 16px;
   margin: 0;

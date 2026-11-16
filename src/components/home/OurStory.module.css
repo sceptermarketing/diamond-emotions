@@ -4,7 +4,7 @@
 }
 .photo {
   flex-shrink: 0;
-  width: 58.256%;
+  width: calc(var(--g) + var(--col) * 0.58256);
   object-fit: cover;
 }
 .panel {
@@ -14,7 +14,7 @@
   justify-content: center;
   gap: 16px;
   flex: 1 0 0;
-  padding: 80px;
+  padding: 80px calc(var(--g) + 80px) 80px 80px;
   background: var(--mist);
 }
 .title {

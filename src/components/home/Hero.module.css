@@ -8,8 +8,8 @@
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  width: 515px;
-  padding: 24px 40px 64px;
+  width: calc(var(--g) + 515px);
+  padding: 24px 40px 64px calc(var(--g) + 40px);
 }
 .copy {
   display: flex;
@@ -28,7 +28,7 @@
 .text {
   font-family: var(--font-inter);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 20px;
 }
 .buttons {
   display: flex;
