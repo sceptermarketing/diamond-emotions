@@ -49,6 +49,13 @@
 .photo {
   flex-shrink: 0;
   width: calc(var(--g) + var(--col) * 0.58256);
+  position: relative;
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

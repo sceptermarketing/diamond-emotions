@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  width: calc(var(--col) * 0.35764); /* 515 at 1440 */
+  width: calc(var(--g) + var(--col) * 0.35764); /* 515 at 1440 */
   padding: 24px 40px 64px calc(var(--g) + 40px);
 }
 .copy {
@@ -103,6 +103,16 @@
 .dots .active {
   width: 58.57px;
   background: var(--white);
+}
+
+/* Very wide screens: fill the column without stretching the photo */
+@media (min-width: 1921px) {
+  .photo img {
+    right: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: 85% 50%;
+  }
 }
 
 @media (max-width: 1200px) {

@@ -5,7 +5,9 @@ import s from './OurStory.module.css';
 export default function OurStory() {
   return (
     <section className={s.section}>
-      <img src="/images/story.jpg" alt="" className={s.photo} loading="lazy" />
+      <div className={s.photo}>
+        <img src="/images/story.jpg" alt="" loading="lazy" />
+      </div>
       <div className={s.panel}>
         <p className="eyebrow">Our Story</p>
         <h2 className={`h2 ${s.title}`}>Founded By a Retailer, for Retailers</h2>

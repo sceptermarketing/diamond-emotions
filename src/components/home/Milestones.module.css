@@ -38,8 +38,8 @@
 .card {
   position: relative;
   display: block;
-  width: 316.25px;
-  height: 361.58px;
+  width: calc(min(100vw, var(--page)) * 0.21962);
+  aspect-ratio: 316.25 / 361.58;
   overflow: hidden;
   border-radius: 5px;
   background: #c8c8c8;
@@ -63,7 +63,7 @@
 .label {
   position: absolute;
   left: 24px;
-  top: 314.89px;
+  bottom: 26px;
   font-size: 18px;
   font-weight: 700;
   line-height: normal;

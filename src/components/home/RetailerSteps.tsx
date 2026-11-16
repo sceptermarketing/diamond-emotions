@@ -19,7 +19,9 @@ const STEPS = [
 export default function RetailerSteps() {
   return (
     <section className={s.section}>
-      <img src="/images/steps.png" alt="" className={s.photo} loading="lazy" />
+      <div className={s.photo}>
+        <img src="/images/steps.png" alt="" loading="lazy" />
+      </div>
       <div className={s.content}>
         <p className="eyebrow">Become a Retailer</p>
         <h2 className="h2">Start Carrying Diamond Emotions in Three Steps</h2>

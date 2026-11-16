@@ -34,7 +34,9 @@ export default function CustomProgram() {
           </Link>
         </div>
       </div>
-      <img src="/images/sketch.jpg" alt="" className={s.photo} loading="lazy" />
+      <div className={s.photo}>
+        <img src="/images/sketch.jpg" alt="" loading="lazy" />
+      </div>
     </section>
   );
 }

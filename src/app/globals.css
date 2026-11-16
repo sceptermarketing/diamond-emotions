@@ -16,14 +16,17 @@
   --font-sans: Helvetica, 'Helvetica Neue', Arial, sans-serif;
   --font-inter: var(--font-inter-family), 'Inter', system-ui, sans-serif;
 
-  --page: 1440px;
+  --page: 1920px;
   --pad: 80px;
   /* left/right padding that keeps content in the 1440 column while the section runs edge to edge */
-  /* The layout is fluid: every section spans the full width with Figma's side padding,
-     and split-section columns keep Figma's 1440 proportions. */
-  --edge: var(--pad);
-  --g: 0px;
-  --col: 100%;
+  /* Fluid layout: sections span the screen with Figma's 80px padding and Figma's 1440 column
+     ratios, growing up to a 1920px layout. On wider screens (or zoomed out) the content stays
+     centered at 1920 while backgrounds and photos still run to the screen edges.
+     --g is the space outside that 1920 column; --col is the column width. Percentages resolve
+     against the element's containing block, which is a full-width section wherever these are used. */
+  --edge: max(var(--pad), calc((100% - var(--page)) / 2 + var(--pad)));
+  --g: max(0px, calc((100% - var(--page)) / 2));
+  --col: min(100%, var(--page));
 }
 
 *,
