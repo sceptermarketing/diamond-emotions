@@ -1,0 +1,119 @@
+.section {
+  display: flex;
+  max-width: var(--page);
+  min-height: 601px;
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  flex: 1 0 0;
+  padding: 80px;
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 495px;
+  max-width: 100%;
+}
+.sub {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--body);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex-shrink: 0;
+  width: 840px;
+  padding: 64px;
+  background: var(--mist);
+}
+.row {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.row3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.row5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.ring {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.ring:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+.large {
+  padding: 12px;
+}
+.ringImg {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 807 / 393;
+  overflow: hidden;
+  mix-blend-mode: darken;
+}
+.ringImg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ringName {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+.large .ringName {
+  font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+  .section {
+    flex-direction: column;
+    min-height: 0;
+  }
+  .left {
+    padding: 56px var(--pad);
+  }
+  .right {
+    width: 100%;
+    padding: 40px var(--pad);
+  }
+}
+
+@media (max-width: 640px) {
+  .row5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .row3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .large .ringName {
+    font-size: 14px;
+  }
+}

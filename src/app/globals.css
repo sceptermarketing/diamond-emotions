@@ -1,0 +1,165 @@
+/* Design tokens from the Figma "Diamond Emotion" frame. */
+:root {
+  --forest: #202824; /* buttons, top bar, dark panels */
+  --icon-circle: #1d1c1c;
+  --sand: #eae5da; /* trust bar */
+  --mist: #f5f5f5; /* light sections */
+  --faq: #f4f4f4;
+  --line: #e5e5e5;
+  --ink: #000000;
+  --body: #4a4a4a;
+  --eyebrow: rgba(0, 0, 0, 0.7);
+  --topbar-text: #f7f4ed;
+  --white: #ffffff;
+
+  --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-inter: var(--font-inter-family), 'Inter', system-ui, sans-serif;
+
+  --page: 1440px;
+  --pad: 80px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Shared type */
+.eyebrow {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--eyebrow);
+}
+
+.h2 {
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+/* Shared buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+}
+.btn:hover {
+  opacity: 0.88;
+}
+
+/* 14px, radius 8 (hero / steps / bridal) */
+.btn-sm {
+  height: 52px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+/* bold 16px, radius 12 (custom / story / CTA / footer) */
+.btn-lg {
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-dark {
+  background: var(--forest);
+  color: var(--white);
+}
+.btn-light {
+  background: var(--white);
+  color: var(--forest);
+}
+.btn-outline {
+  border-color: var(--forest);
+  color: var(--ink);
+}
+.btn-outline-light {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid #8a7550;
+  outline-offset: 2px;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --pad: 40px;
+  }
+  .h2 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --pad: 20px;
+  }
+  .h2 {
+    font-size: 34px;
+  }
+}

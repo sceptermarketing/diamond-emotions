@@ -1,0 +1,112 @@
+.section {
+  position: relative;
+  max-width: var(--page);
+  min-height: 396px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--forest);
+}
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #202824 33.432%, rgba(32, 40, 36, 0.3) 73.367%);
+}
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 48px;
+  min-height: 396px;
+  padding: 80px var(--pad);
+  color: var(--white);
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.eyebrow,
+.sub {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.title {
+  font-size: 48px;
+  line-height: normal;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.light {
+  background: var(--white);
+  color: var(--ink);
+}
+.outline {
+  border-color: var(--white);
+  color: var(--white);
+}
+.btn:hover {
+  opacity: 0.88;
+}
+.icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.badge {
+  position: absolute;
+  inset: 12.5% 20.81% 12.5% 20.83%;
+  width: 58.36%;
+  height: 75%;
+}
+.phone {
+  position: absolute;
+  top: 20.83%;
+  left: 20.83%;
+  width: 58.29%;
+  height: 58.37%;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 40px;
+  }
+  .shade {
+    background: linear-gradient(90deg, #202824 40%, rgba(32, 40, 36, 0.55) 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 34px;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "diamond-emotions",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Diamond Emotions (wholesale bridal & fine jewelry) website, Next.js. New design only.",
+  "scripts": {
+    "dev": "next dev -p 5200",
+    "build": "next build",
+    "start": "next start -p 5200",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "5.9.3"
+  }
+}

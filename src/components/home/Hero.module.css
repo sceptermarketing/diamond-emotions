@@ -1,0 +1,147 @@
+.hero {
+  display: flex;
+  height: 760px;
+  max-width: var(--page);
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 515px;
+  padding: 24px 40px 64px;
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.kicker {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.title {
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: 0.48px;
+}
+.text {
+  font-family: var(--font-inter);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.buttons {
+  display: flex;
+  gap: 16px;
+}
+.btn {
+  height: 50px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: normal;
+}
+.partner {
+  font-family: var(--font-inter);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--forest);
+}
+.partner a {
+  font-weight: 600;
+  text-underline-position: from-font;
+}
+
+.right {
+  position: relative;
+  flex: 1 0 0;
+  overflow: hidden;
+}
+.photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+/* Same crop as the Figma fill */
+.photo img {
+  position: absolute;
+  top: 0;
+  left: -83.86%;
+  width: 186.81%;
+  height: 100%;
+  max-width: none;
+}
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.46) 8.218%,
+    rgba(0, 0, 0, 0.43) 10.261%,
+    rgba(0, 0, 0, 0) 21.329%
+  );
+}
+
+.dots {
+  position: absolute;
+  top: 679px;
+  left: 607px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dots span {
+  width: 32.37px;
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(27px);
+}
+.dots .active {
+  width: 58.57px;
+  background: var(--white);
+}
+
+@media (max-width: 1200px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .left {
+    width: 100%;
+    padding: 48px var(--pad);
+  }
+  .right {
+    flex: none;
+    height: 520px;
+  }
+  .photo img {
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: 45% 60%;
+  }
+  .shade {
+    display: none;
+  }
+  .dots {
+    top: auto;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 38px;
+  }
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .right {
+    height: 360px;
+  }
+}
