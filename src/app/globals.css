@@ -19,11 +19,11 @@
   --page: 1440px;
   --pad: 80px;
   /* left/right padding that keeps content in the 1440 column while the section runs edge to edge */
-  --edge: max(var(--pad), calc((100% - var(--page)) / 2 + var(--pad)));
-  /* gutter outside the centered 1440 column (0 at 1440 and below) */
-  --g: max(0px, calc((100% - var(--page)) / 2));
-  /* the 1440 column itself, for proportional widths below 1440 */
-  --col: min(100%, var(--page));
+  /* The layout is fluid: every section spans the full width with Figma's side padding,
+     and split-section columns keep Figma's 1440 proportions. */
+  --edge: var(--pad);
+  --g: 0px;
+  --col: 100%;
 }
 
 *,

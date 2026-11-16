@@ -36,7 +36,6 @@
 }
 .row {
   width: 100%;
-  max-width: 712px;
   display: grid;
   gap: 16px;
   margin: 0;

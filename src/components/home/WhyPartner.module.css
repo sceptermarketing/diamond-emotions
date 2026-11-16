@@ -5,7 +5,6 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: var(--page);
   margin: 0 auto;
   padding: 80px var(--pad);
 }
@@ -32,7 +31,8 @@
 }
 .img {
   width: 100%;
-  height: 221.12px;
+  height: auto;
+  aspect-ratio: 302 / 221.12;
   border-radius: 8px;
   object-fit: cover;
 }
@@ -63,5 +63,12 @@
 @media (max-width: 560px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Figma's manual breaks only fit the 1440 card width */
+@media (min-width: 1561px) {
+  .br {
+    display: none;
   }
 }

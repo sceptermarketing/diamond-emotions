@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 48px;
-  max-width: var(--page);
   margin: 0 auto;
   padding: 80px var(--pad);
 }
@@ -47,7 +46,7 @@
 .img {
   position: relative;
   display: block;
-  height: 332.79px;
+  aspect-ratio: 302 / 332.79;
   overflow: hidden;
   border-radius: 8px;
 }

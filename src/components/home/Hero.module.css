@@ -8,13 +8,14 @@
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  width: calc(var(--g) + 515px);
+  width: calc(var(--col) * 0.35764); /* 515 at 1440 */
   padding: 24px 40px 64px calc(var(--g) + 40px);
 }
 .copy {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 435px; /* Figma's text block width */
 }
 .kicker {
   font-size: 16px;
