@@ -1,8 +1,6 @@
 .section {
   position: relative;
-  max-width: var(--page);
   min-height: 396px;
-  margin: 0 auto;
   overflow: hidden;
   background: var(--forest);
 }
@@ -25,7 +23,7 @@
   justify-content: center;
   gap: 48px;
   min-height: 396px;
-  padding: 80px var(--pad);
+  padding: 80px var(--edge);
   color: var(--white);
 }
 .copy {

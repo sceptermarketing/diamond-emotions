@@ -13,11 +13,13 @@
   --white: #ffffff;
 
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: Helvetica, 'Helvetica Neue', Arial, sans-serif;
   --font-inter: var(--font-inter-family), 'Inter', system-ui, sans-serif;
 
   --page: 1440px;
   --pad: 80px;
+  /* left/right padding that keeps content in the 1440 column while the section runs edge to edge */
+  --edge: max(var(--pad), calc((100% - var(--page)) / 2 + var(--pad)));
 }
 
 *,

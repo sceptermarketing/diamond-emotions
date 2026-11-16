@@ -1,14 +1,12 @@
 .section {
   display: flex;
   align-items: stretch;
-  max-width: var(--page);
   min-height: 772.67px;
-  margin: 0 auto;
   background: var(--white);
 }
 .photo {
   flex-shrink: 0;
-  width: 600px;
+  width: 41.667%;
   object-fit: cover;
 }
 .content {
@@ -18,6 +16,9 @@
   gap: 16px;
   flex: 1 0 0;
   padding: 80px;
+}
+.content > * {
+  max-width: 680px;
 }
 .list {
   width: 100%;

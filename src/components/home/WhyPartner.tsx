@@ -9,7 +9,7 @@ const CARDS = [
   {
     img: '/images/sketch.jpg',
     title: 'Say Yes To Custom',
-    text: "When a couple can't find it in your case, send us their idea. We'll return a CAD for approval, then craft the finished piece.",
+    text: "When a couple can't find it in your case, send us their idea. We'll return a CAD for approval, then craft the\nfinished piece.",
   },
   {
     img: '/images/why-never.jpg',
@@ -19,7 +19,7 @@ const CARDS = [
   {
     img: '/images/why-retailer.png',
     title: 'Built By a Retailer',
-    text: 'Our founder spent years managing jewelry stores before starting Diamond Emotions. Every design is made with your counter in mind.',
+    text: 'Our founder spent years managing jewelry stores before starting Diamond Emotions. Every design is\nmade with your counter in\nmind.',
   },
 ];
 
@@ -44,7 +44,19 @@ export default function WhyPartner() {
             <article key={c.title} className={s.card}>
               <img src={c.img} alt="" className={s.img} loading="lazy" />
               <h3 className={s.title}>{c.title}</h3>
-              <p className={s.text}>{c.text}</p>
+              <p className={s.text}>
+                {c.text.split('\n').map((line, i) => (
+                  <span key={i}>
+                    {i > 0 && (
+                      <>
+                        {' '}
+                        <br className={s.br} />
+                      </>
+                    )}
+                    {line}
+                  </span>
+                ))}
+              </p>
             </article>
           ))}
         </div>

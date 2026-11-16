@@ -39,8 +39,6 @@
   right: 0;
   display: grid;
   grid-template-columns: 515px 1fr;
-  max-width: var(--page);
-  margin: 0 auto;
   pointer-events: none;
 }
 .bar > * {

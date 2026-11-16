@@ -47,6 +47,10 @@
 }
 
 @media (max-width: 1200px) {
+  /* the design's manual line breaks only make sense at desktop width */
+  .br {
+    display: none;
+  }
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }

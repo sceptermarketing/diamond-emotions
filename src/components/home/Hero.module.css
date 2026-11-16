@@ -1,8 +1,6 @@
 .hero {
   display: flex;
   height: 760px;
-  max-width: var(--page);
-  margin: 0 auto;
 }
 
 .left {
@@ -65,11 +63,13 @@
   overflow: hidden;
 }
 /* Same crop as the Figma fill */
+/* Figma's crop at 1440 (left -83.86%, width 186.81% of the 925px column), anchored to the right
+   edge so wider screens show more of the photo instead of stretching it. */
 .photo img {
   position: absolute;
   top: 0;
-  left: -83.86%;
-  width: 186.81%;
+  right: -27.3px;
+  width: max(1728px, calc(100% + 27.3px));
   height: 100%;
   max-width: none;
 }
@@ -119,6 +119,7 @@
   }
   .photo img {
     left: 0;
+    right: 0;
     width: 100%;
     object-fit: cover;
     object-position: 45% 60%;

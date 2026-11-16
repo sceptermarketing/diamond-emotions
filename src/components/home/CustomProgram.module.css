@@ -1,8 +1,6 @@
 .section {
   display: flex;
-  max-width: var(--page);
   min-height: 815.43px;
-  margin: 0 auto;
 }
 
 .panel {
@@ -15,6 +13,7 @@
   background: var(--forest);
 }
 .copy {
+  max-width: 441px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -49,7 +48,7 @@
 
 .photo {
   flex-shrink: 0;
-  width: 838.88px;
+  width: 58.256%;
   object-fit: cover;
 }
 

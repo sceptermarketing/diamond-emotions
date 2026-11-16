@@ -1,12 +1,10 @@
 .section {
   display: flex;
-  max-width: var(--page);
   min-height: 772.67px;
-  margin: 0 auto;
 }
 .photo {
   flex-shrink: 0;
-  width: 838.88px;
+  width: 58.256%;
   object-fit: cover;
 }
 .panel {
@@ -19,16 +17,22 @@
   padding: 80px;
   background: var(--mist);
 }
+.title {
+  max-width: 441px;
+}
 .text {
   display: flex;
   flex-direction: column;
   gap: 21px;
-  max-width: 460px;
+  /* Figma's text box is 460px, 19px wider than the panel's padded width */
+  width: 460px;
+  max-width: calc(100% + 19px);
   font-size: 14px;
   line-height: 1.5;
 }
 .rule {
   width: 100%;
+  max-width: 441px;
   height: 0;
   margin: 0;
   border: 0;
@@ -69,5 +73,9 @@
   }
   .panel {
     padding: 56px var(--pad);
+  }
+  .text {
+    width: auto;
+    max-width: none;
   }
 }
