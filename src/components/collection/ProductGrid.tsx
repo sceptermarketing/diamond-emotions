@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import type { Metal, Product } from '@/lib/collections';
+import { useRouter } from 'next/navigation';
+import { DEPARTMENTS, type Product } from '@/lib/collections';
+import FilterDrawer, { NO_FILTERS, type Applied } from './FilterDrawer';
 import s from './ProductGrid.module.css';
 
 const PAGE = 16; // 4 rows of 4, as in the design
@@ -12,22 +14,49 @@ const SORTS = [
 ] as const;
 type SortId = (typeof SORTS)[number]['id'];
 
-type Props = { products: Product[]; basePath: string };
+type Props = { products: Product[]; basePath: string; department: string; category: string };
 
-export default function ProductGrid({ products, basePath }: Props) {
+export default function ProductGrid({ products, basePath, department, category }: Props) {
+  const router = useRouter();
   const [shown, setShown] = useState(PAGE);
-  const [metals, setMetals] = useState<Metal[]>([]);
+  const [filters, setFilters] = useState<Applied>({ ...NO_FILTERS, department, category });
   const [sort, setSort] = useState<SortId>('style-asc');
-  const [menu, setMenu] = useState<'filter' | 'sort' | null>(null);
+  const [menu, setMenu] = useState<'sort' | null>(null);
+  const [drawer, setDrawer] = useState(false);
   const toolsRef = useRef<HTMLDivElement>(null);
+  const filterBtn = useRef<HTMLButtonElement>(null);
 
-  const allMetals = useMemo(() => Array.from(new Set(products.map((p) => p.metal))), [products]);
+  const active = filters.stones.length + filters.shapes.length + filters.settings.length;
+
+  const closeDrawer = useCallback(() => {
+    setDrawer(false);
+    filterBtn.current?.focus();
+  }, []);
+
+  const apply = (next: Applied) => {
+    // another department or category lives on its own page
+    if (next.department !== department) {
+      const d = DEPARTMENTS.find((x) => x.label === next.department);
+      if (d) router.push(d.href);
+    } else if (next.category !== category) {
+      router.push(basePath.replace(`${category}/`, `${next.category}/`));
+    }
+    setFilters({ ...next, department, category });
+    setShown(PAGE);
+    closeDrawer();
+  };
 
   const list = useMemo(() => {
-    const filtered = metals.length ? products.filter((p) => metals.includes(p.metal)) : products;
+    const { stones, shapes, settings } = filters;
+    const filtered = products.filter(
+      (p) =>
+        (!stones.length || (p.stone && stones.includes(p.stone))) &&
+        (!shapes.length || p.shapes.some((x) => shapes.includes(x))) &&
+        (!settings.length || p.settings.some((x) => settings.includes(x))),
+    );
     const sorted = [...filtered].sort((a, b) => a.style.localeCompare(b.style, undefined, { numeric: true }));
     return sort === 'style-desc' ? sorted.reverse() : sorted;
-  }, [products, metals, sort]);
+  }, [products, filters, sort]);
 
   const visible = list.slice(0, shown);
 
@@ -46,11 +75,6 @@ export default function ProductGrid({ products, basePath }: Props) {
     };
   }, [menu]);
 
-  const toggleMetal = (m: Metal) => {
-    setMetals((cur) => (cur.includes(m) ? cur.filter((x) => x !== m) : [...cur, m]));
-    setShown(PAGE);
-  };
-
   return (
     <section className={s.section}>
       <div className={s.toolbar}>
@@ -60,31 +84,19 @@ export default function ProductGrid({ products, basePath }: Props) {
         <div className={s.tools} ref={toolsRef}>
           <div className={s.tool}>
             <button
+              ref={filterBtn}
               type="button"
-              className={`${s.btn} ${metals.length ? s.btnActive : ''}`}
-              aria-expanded={menu === 'filter'}
-              aria-haspopup="true"
-              onClick={() => setMenu(menu === 'filter' ? null : 'filter')}
+              className={`${s.btn} ${active ? s.btnActive : ''}`}
+              aria-expanded={drawer}
+              aria-haspopup="dialog"
+              onClick={() => {
+                setMenu(null);
+                setDrawer(true);
+              }}
             >
-              Filter{metals.length ? ` (${metals.length})` : ''}
+              Filter{active ? ` (${active})` : ''}
               <img src="/images/icons/filter.svg" alt="" width={24} height={24} />
             </button>
-            {menu === 'filter' && (
-              <div className={s.pop} role="group" aria-label="Filter by metal">
-                <p className={s.popTitle}>Metal</p>
-                {allMetals.map((m) => (
-                  <label key={m} className={s.check}>
-                    <input type="checkbox" checked={metals.includes(m)} onChange={() => toggleMetal(m)} />
-                    {m}
-                  </label>
-                ))}
-                {metals.length > 0 && (
-                  <button type="button" className={s.clear} onClick={() => setMetals([])}>
-                    Clear filters
-                  </button>
-                )}
-              </div>
-            )}
           </div>
           <div className={s.tool}>
             <button
@@ -121,6 +133,8 @@ export default function ProductGrid({ products, basePath }: Props) {
         </div>
       </div>
 
+      <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} />
+
       <hr className={s.rule} />
 
       <ul className={s.grid}>
@@ -142,6 +156,15 @@ export default function ProductGrid({ products, basePath }: Props) {
           </li>
         ))}
       </ul>
+
+      {list.length === 0 && (
+        <p className={s.empty}>
+          No styles match these filters.{' '}
+          <button type="button" onClick={() => setFilters({ ...NO_FILTERS, department, category })}>
+            Clear filters
+          </button>
+        </p>
+      )}
 
       <div className={s.more}>
         <p className={s.showing} aria-live="polite">

@@ -34,7 +34,12 @@ export default async function CollectionPage({ params }: Params) {
       <Header variant="solid" />
       <main>
         <CollectionIntro collection={c} />
-        <ProductGrid products={c.products} basePath={`${c.parent.href}${c.slug}/`} />
+        <ProductGrid
+          products={c.products}
+          basePath={`${c.parent.href}${c.slug}/`}
+          department={c.parent.label}
+          category={c.slug}
+        />
         <Faq />
         <FinalCta />
       </main>
