@@ -1,0 +1,117 @@
+.section {
+  display: flex;
+  min-height: 264px;
+  background: var(--ivory);
+}
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 26px var(--pad-sm) 34px calc(var(--g) + var(--pad-sm));
+}
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  color: var(--muted);
+  font-family: var(--font-inter);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.crumbs a {
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--forest);
+  text-decoration: underline;
+}
+.title {
+  color: #171b18;
+  font-size: 48px;
+  line-height: 1;
+}
+.text {
+  max-width: 783px;
+  color: var(--muted);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  line-height: 1.45;
+}
+.reassure {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 7px;
+  padding-top: 8px;
+  color: var(--muted);
+  font-family: var(--font-inter);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.strong {
+  color: var(--forest);
+  font-weight: 500;
+}
+/* "•" travels with the item after it, so no bullet is left hanging at a line end */
+.item {
+  white-space: nowrap;
+}
+.item::before {
+  content: '•';
+  margin-right: 7px;
+  color: var(--muted);
+}
+.phone {
+  color: var(--forest);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.phone:hover {
+  text-decoration: underline;
+}
+
+/* 529px of 1440 in the design, edge to edge on the right */
+.photo {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(var(--g) + var(--col) * 0.36736);
+  overflow: hidden;
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 880px) {
+  .section {
+    flex-direction: column;
+  }
+  .copy {
+    padding: 32px var(--pad-sm);
+  }
+  .photo {
+    width: 100%;
+    height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 32px;
+  }
+  .photo {
+    height: 220px;
+  }
+}

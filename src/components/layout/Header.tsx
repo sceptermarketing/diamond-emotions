@@ -10,7 +10,13 @@ import s from './Header.module.css';
  * Top bar + main header. On the homepage the bar sits over the hero: the logo on the hero's white
  * left panel (515px) and the menu over the photo, in white.
  */
-export default function Header() {
+type Props = {
+  /** overlay: laid over the homepage hero (white menu). solid: white bar for inner pages. */
+  variant?: 'overlay' | 'solid';
+};
+
+export default function Header({ variant = 'overlay' }: Props) {
+  const solid = variant === 'solid';
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -37,15 +43,21 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className={s.header}>
+    <header className={`${s.header} ${solid ? s.solid : ''}`}>
       <div className={s.topbar}>
         <p>Wholesale only · Serving independent jewelers since 2009</p>
-        <div className={s.topbarRight}>
-          <p className={s.shopping}>
-            Shopping for a ring? <Link href={LINKS.findJeweler}>Find a jeweler near you</Link>
-          </p>
-          <a href={PHONE_HREF}>{PHONE}</a>
-        </div>
+        {solid ? (
+          <Link href={LINKS.findJeweler} className={s.topbarLink}>
+            Shopping for a ring? Find a jeweler near you&nbsp;&nbsp;↗
+          </Link>
+        ) : (
+          <div className={s.topbarRight}>
+            <p className={s.shopping}>
+              Shopping for a ring? <Link href={LINKS.findJeweler}>Find a jeweler near you</Link>
+            </p>
+            <a href={PHONE_HREF}>{PHONE}</a>
+          </div>
+        )}
       </div>
 
       <div className={s.bar}>
@@ -64,7 +76,7 @@ export default function Header() {
                     {item.label}
                     {item.children && (
                       <span className={s.chev} aria-hidden>
-                        <img src="/images/icons/chevron-white.svg" alt="" />
+                        <img src={solid ? '/images/icons/chevron-gray.svg' : '/images/icons/chevron-white.svg'} alt="" />
                       </span>
                     )}
                   </Link>
@@ -85,7 +97,7 @@ export default function Header() {
           <div className={s.actions}>
             <Link href={LINKS.retailerLogin} className={s.login}>
               <span className={s.badge} aria-hidden>
-                <img src="/images/icons/badge-white.svg" alt="" />
+                <img src={solid ? '/images/icons/badge-gray.svg' : '/images/icons/badge-white.svg'} alt="" />
               </span>
               Retail Login
             </Link>

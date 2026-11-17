@@ -183,6 +183,63 @@
   background: var(--ink);
 }
 
+/* Solid variant (inner pages, e.g. collection pages): white bar under the top bar, menu centred */
+.topbarLink {
+  color: inherit;
+  text-decoration: none;
+}
+.topbarLink:hover {
+  text-decoration: underline;
+}
+.solid .topbar {
+  height: 36px;
+  padding: 0 var(--edge-sm);
+  font-size: 11px;
+  line-height: 1.45;
+}
+@media (min-width: 1201px) {
+  .solid .bar {
+    position: relative;
+    top: 0;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 23px var(--edge-sm);
+    background: var(--white);
+    border-bottom: 1px solid #daddd7;
+    pointer-events: auto;
+  }
+  .solid .logoCell {
+    padding: 0;
+  }
+  .solid .logo img {
+    display: block;
+    width: 170px;
+    height: 56.8px;
+  }
+  .solid .navCell {
+    flex: 1 1 0;
+    justify-content: flex-end;
+    padding: 0;
+  }
+  .solid .nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .solid .menuLink {
+    color: #374151;
+  }
+  .solid .login {
+    color: #4b5563;
+  }
+  .solid .cta {
+    background: var(--forest);
+    color: var(--white);
+  }
+}
+
 /* Mobile menu: slide-in drawer (used below 1200px) */
 .backdrop,
 .drawer {
@@ -326,7 +383,7 @@
     padding: 16px 0;
     color: var(--white);
     font-family: var(--font-serif);
-    font-size: 26px;
+    font-size: 20px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: 0.26px;

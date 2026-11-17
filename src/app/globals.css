@@ -11,6 +11,8 @@
   --eyebrow: rgba(0, 0, 0, 0.7);
   --topbar-text: #f7f4ed;
   --white: #ffffff;
+  --ivory: #f7f4ed; /* collection intro */
+  --muted: #626862; /* collection page secondary text */
 
   --font-serif: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   --font-sans: Helvetica, 'Helvetica Neue', Arial, sans-serif;
@@ -25,6 +27,9 @@
      --g is the space outside that 1920 column; --col is the column width. Percentages resolve
      against the element's containing block, which is a full-width section wherever these are used. */
   --edge: max(var(--pad), calc((100% - var(--page)) / 2 + var(--pad)));
+  /* inner-page header and collection intro use Figma's 64px side padding */
+  --pad-sm: 64px;
+  --edge-sm: max(var(--pad-sm), calc((100% - var(--page)) / 2 + var(--pad-sm)));
   --g: max(0px, calc((100% - var(--page)) / 2));
   --col: min(100%, var(--page));
 }
@@ -160,6 +165,7 @@ button {
 @media (max-width: 1366px) {
   :root {
     --pad: 40px;
+    --pad-sm: 40px;
   }
 }
 
@@ -172,6 +178,7 @@ button {
 @media (max-width: 640px) {
   :root {
     --pad: 20px;
+    --pad-sm: 20px;
   }
   /* headings flow freely on phones: manual line breaks off */
   h1 br,
