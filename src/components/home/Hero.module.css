@@ -181,9 +181,6 @@
     width: 100%;
     padding: 48px var(--pad);
   }
-  .copy {
-    max-width: 560px;
-  }
   .right {
     flex: none;
     height: 520px;
@@ -199,5 +196,12 @@
   }
   .right {
     height: 360px;
+  }
+}
+
+/* 880px and below: text blocks use the full width */
+@media (max-width: 880px) {
+  .copy {
+    max-width: none;
   }
 }

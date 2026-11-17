@@ -129,3 +129,11 @@
     padding: 40px var(--pad) 40px 32px;
   }
 }
+
+/* 880px and below: text blocks use the full width */
+@media (max-width: 880px) {
+  .copy {
+    width: 100%;
+    max-width: none;
+  }
+}

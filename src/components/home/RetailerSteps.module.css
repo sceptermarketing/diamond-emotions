@@ -77,3 +77,11 @@
     padding: 56px var(--pad) 56px 40px;
   }
 }
+
+/* 880px and below: text blocks use the full width */
+@media (max-width: 880px) {
+  .content > *,
+  .list p {
+    max-width: none;
+  }
+}

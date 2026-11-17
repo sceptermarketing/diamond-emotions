@@ -90,3 +90,11 @@
     width: 50%;
   }
 }
+
+/* 880px and below: text blocks use the full width */
+@media (max-width: 880px) {
+  .copy,
+  .text {
+    max-width: none;
+  }
+}
