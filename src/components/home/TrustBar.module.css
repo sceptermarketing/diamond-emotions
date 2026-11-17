@@ -71,3 +71,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* 1366 and below: long titles ("Custom, Start To Finish") wrap instead of spilling out of their column */
+@media (max-width: 1366px) {
+  .title {
+    white-space: normal;
+  }
+}

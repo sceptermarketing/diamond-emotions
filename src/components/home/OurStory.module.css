@@ -21,6 +21,7 @@
   justify-content: center;
   gap: 16px;
   flex: 1 0 0;
+  min-width: 0; /* lets the 460px text box shrink on narrow desktops instead of pushing past the screen */
   padding: 80px calc(var(--g) + var(--pad)) 80px var(--pad);
   background: var(--mist);
 }

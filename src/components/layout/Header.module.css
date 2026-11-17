@@ -517,3 +517,25 @@
     display: none;
   }
 }
+
+/* 1201–1366: tighter menu so it stays over the hero photo instead of spilling past the screen */
+@media (min-width: 1201px) and (max-width: 1366px) {
+  .navCell {
+    padding: 24px 16px;
+  }
+  .menu {
+    gap: 6px;
+  }
+  .actions {
+    gap: 8px;
+  }
+  .menuLink,
+  .login,
+  .cta {
+    font-size: 13px;
+  }
+  .cta {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
