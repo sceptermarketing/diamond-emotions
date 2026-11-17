@@ -215,11 +215,11 @@
 }
 
 @media (max-width: 1200px) {
-  /* 2 x 2 link columns, map full width underneath */
+  /* 4 link columns in one row, map full width underneath (2 x 2 at 880px and below) */
   .cols {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px 32px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 40px 24px;
   }
   .col {
     width: auto !important;
@@ -243,5 +243,12 @@
   }
   .bottom p {
     white-space: normal;
+  }
+}
+
+@media (max-width: 880px) {
+  .cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
   }
 }

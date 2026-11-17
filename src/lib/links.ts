@@ -31,7 +31,9 @@ export const LINKS = {
   googleReviews: '#', // TODO: Google Business Profile reviews link
   // Google's "Diamond Emotions" listing (42.728804, -84.4554549); the street address alone lands in Lansing.
   map: 'https://www.google.com/maps/search/?api=1&query=Diamond+Emotions+2844+East+Grand+River+Ave+East+Lansing+MI+48823',
-  mapEmbed: 'https://maps.google.com/maps?q=42.728804,-84.4554549&z=13&output=embed',
+  // view-only embed centred on the store (no Google card, so the DE pin at the centre sits on it)
+  mapEmbed:
+    'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11800!2d-84.4554549!3d42.728804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1700000000000',
   facebook: '#', // TODO
   instagram: '#', // TODO
   pinterest: '#', // TODO
