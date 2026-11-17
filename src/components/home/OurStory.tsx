@@ -10,7 +10,7 @@ export default function OurStory() {
       </div>
       <div className={s.panel}>
         <p className="eyebrow">Our Story</p>
-        <h2 className={`h2 ${s.title}`}>Founded By a Retailer, for Retailers</h2>
+        <h2 className={`h2 ${s.title}`}>Founded By A Retailer, For Retailers</h2>
         <div className={s.text}>
           <p>
             Rick Gouthro decided on a career in jewelry while ring shopping with Gerri in college. He spent years on the

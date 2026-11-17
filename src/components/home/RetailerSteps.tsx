@@ -24,7 +24,7 @@ export default function RetailerSteps() {
       </div>
       <div className={s.content}>
         <p className="eyebrow">Become a Retailer</p>
-        <h2 className="h2">Start Carrying Diamond Emotions in Three Steps</h2>
+        <h2 className="h2">Start Carrying Diamond Emotions In Three Steps</h2>
         <div className={s.list}>
           <NumberedList items={STEPS} tone="dark" />
         </div>

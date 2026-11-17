@@ -30,9 +30,9 @@ export default function WhyPartner() {
         <div className={s.head}>
           <p className="eyebrow">Why Jewelers Partner With Us</p>
           <h2 className="h2">
-            Everything your bridal case needs.
+            Everything Your Bridal Case Needs.
             <br />
-            Nothing that competes with it.
+            Nothing That Competes With It.
           </h2>
           <p className={s.sub}>
             We&apos;ve stood behind the counter. We know what it takes to close a bridal sale — and what gets in the way.

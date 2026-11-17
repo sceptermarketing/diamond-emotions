@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LINKS } from '@/lib/links';
+import HeroSlider from './HeroSlider';
 import s from './Hero.module.css';
 
 export default function Hero() {
@@ -8,7 +9,7 @@ export default function Hero() {
       <div className={s.left}>
         <div className={s.copy}>
           <p className={s.kicker}>Wholesale Bridal &amp; Fine Jewelry</p>
-          <h1 className={s.title}>Sell more bridal. Say yes to every custom request.</h1>
+          <h1 className={s.title}>Sell More Bridal. Say Yes To Every Custom Request.</h1>
           <p className={s.text}>
             Diamond Emotions designs engagement rings, wedding bands and fine jewelry for independent jewelers — and
             only for independent jewelers. We never sell to the public. We help you win the couple standing at your
@@ -28,19 +29,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className={s.right}>
-        <div className={s.photo} aria-hidden>
-          <img src="/images/hero.jpg" alt="" fetchPriority="high" />
-        </div>
-        <div className={s.shade} aria-hidden />
-        <div className={s.dots} aria-hidden>
-          <span />
-          <span className={s.active} />
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
+      <HeroSlider />
     </section>
   );
 }

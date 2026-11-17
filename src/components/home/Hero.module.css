@@ -58,10 +58,19 @@
   flex: 1 0 0;
   overflow: hidden;
 }
+.right {
+  touch-action: pan-y;
+  user-select: none;
+}
 .photo {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.photo.current {
+  opacity: 1;
 }
 /* Same crop as the Figma fill */
 /* Figma's crop at 1440 (left -83.86%, width 186.81% of the 925px column), anchored to the right
@@ -93,14 +102,26 @@
   align-items: center;
   gap: 8px;
 }
-.dots span {
+.dots button {
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: width 0.4s ease, background-color 0.4s ease;
   width: 32.37px;
   height: 5px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(27px);
 }
-.dots .active {
+.dots button:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+.dots button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+.dots .active,
+.dots .active:hover {
   width: 58.57px;
   background: var(--white);
 }
@@ -112,6 +133,13 @@
     width: 100%;
     object-fit: cover;
     object-position: 85% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .dots button {
+    transition: none;
   }
 }
 
