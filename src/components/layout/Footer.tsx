@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { LINKS, PHONE, PHONE_HREF } from '@/lib/links';
+import { ADDRESS, LINKS, PHONE, PHONE_HREF } from '@/lib/links';
 import s from './Footer.module.css';
 
 const COLUMNS = [
@@ -67,22 +67,29 @@ export default function Footer() {
         <div className={s.cols}>
           <div className={s.col} style={{ flex: '1 0 0' }}>
             <p className={s.title}>Diamond Emotions</p>
-            <div className={s.list}>
-              <p className={s.strong}>Address:</p>
-              <p>2844 East Grand River Ave</p>
-              <p>East Lansing, MI 48823</p>
-            </div>
-            <div className={s.list}>
-              <p className={s.strong}>Phone:</p>
-              <p>
-                <a href={PHONE_HREF}>{PHONE}</a>
-              </p>
-            </div>
-            <div className={s.hours}>
-              <p className={s.strong}>Mon - Thu:</p>
-              <p>09:00am – 05:00pm</p>
-              <p className={s.strong}>Fri:</p>
-              <p>09:00am – 04:00pm</p>
+            <div className={s.info}>
+              <div className={s.infoItem}>
+                <p className={s.strong}>Address:</p>
+                <p className={s.address}>
+                  <a href={LINKS.map} target="_blank" rel="noopener noreferrer">
+                    {ADDRESS[0]}, <span className={s.nowrap}>{ADDRESS[1]}</span>
+                  </a>
+                </p>
+              </div>
+              <div className={s.infoItem}>
+                <p className={s.strong}>Phone:</p>
+                <p>
+                  <a href={PHONE_HREF}>{PHONE}</a>
+                </p>
+              </div>
+              <div className={s.infoItem}>
+                <p className={s.strong}>Mon - Thu:</p>
+                <p>09:00am – 05:00pm</p>
+              </div>
+              <div className={s.infoItem}>
+                <p className={s.strong}>Fri:</p>
+                <p>09:00am – 04:00pm</p>
+              </div>
             </div>
           </div>
 

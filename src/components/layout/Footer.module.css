@@ -106,8 +106,30 @@
 .strong {
   font-weight: 700;
 }
-.hours {
+/* contact details: label + value pairs, evenly spaced */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 6px;
   line-height: 1.5;
+}
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.info a {
+  text-decoration: none;
+}
+.info a:hover {
+  text-decoration: underline;
+}
+.address {
+  max-width: 220px; /* street on line 1, city on line 2 */
+}
+.nowrap {
+  white-space: nowrap;
 }
 
 .map {
