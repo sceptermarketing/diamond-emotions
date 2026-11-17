@@ -274,3 +274,13 @@
     gap: 40px 32px;
   }
 }
+
+/* phones: let the address flow as one paragraph, no forced line break */
+@media (max-width: 640px) {
+  .address {
+    max-width: none;
+  }
+  .nowrap {
+    white-space: normal;
+  }
+}
