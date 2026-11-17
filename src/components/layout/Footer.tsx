@@ -99,9 +99,22 @@ export default function Footer() {
             </div>
           ))}
 
-          <a href={LINKS.map} className={s.map} target="_blank" rel="noopener noreferrer">
-            <img src="/images/map.png" alt="Map: Diamond Emotions, 2844 East Grand River Ave, East Lansing" loading="lazy" />
-          </a>
+          <div className={s.map}>
+            <iframe
+              src={LINKS.mapEmbed}
+              title="Map: Diamond Emotions, 2844 East Grand River Ave, East Lansing, MI 48823"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            {/* the design's DE pin, laid over Google's marker at the map centre */}
+            <span className={s.mapPin} aria-hidden>
+              DE
+            </span>
+            <a href={LINKS.map} className={s.directions} target="_blank" rel="noopener noreferrer">
+              Get Directions
+            </a>
+          </div>
         </div>
       </div>
 
