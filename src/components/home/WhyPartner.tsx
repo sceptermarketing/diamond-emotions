@@ -30,7 +30,7 @@ export default function WhyPartner() {
         <div className={s.head}>
           <p className="eyebrow">Why Jewelers Partner With Us</p>
           <h2 className="h2">
-            Everything Your Bridal Case Needs.
+            Everything Your Bridal Case Needs.{' '}
             <br />
             Nothing That Competes With It.
           </h2>

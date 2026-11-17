@@ -173,7 +173,12 @@ button {
   :root {
     --pad: 20px;
   }
+  /* headings flow freely on phones: manual line breaks off */
+  h1 br,
+  h2 br {
+    display: none;
+  }
   .h2 {
-    font-size: 34px;
+    font-size: 30px;
   }
 }

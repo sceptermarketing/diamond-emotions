@@ -78,7 +78,7 @@
 
 @media (max-width: 640px) {
   .title {
-    font-size: 34px;
+    font-size: 30px;
   }
   .head > div:last-child {
     display: none;

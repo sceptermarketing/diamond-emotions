@@ -189,7 +189,7 @@
 
 @media (max-width: 640px) {
   .title {
-    font-size: 38px;
+    font-size: 32px;
   }
   .buttons {
     flex-wrap: wrap;
