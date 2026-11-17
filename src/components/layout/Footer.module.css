@@ -74,16 +74,17 @@
 }
 
 .cols {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  /* four equal text columns, then the map */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) 366px;
+  align-items: start;
   gap: 32px;
 }
 .col {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex-shrink: 0;
+  min-width: 0;
   font-size: 14px;
 }
 .title {
@@ -242,10 +243,6 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 40px 24px;
-  }
-  .col {
-    width: auto !important;
-    min-width: 0;
   }
   .map {
     grid-column: 1 / -1;

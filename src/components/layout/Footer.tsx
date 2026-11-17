@@ -5,7 +5,6 @@ import s from './Footer.module.css';
 const COLUMNS = [
   {
     title: 'Collections',
-    width: 141,
     links: [
       { label: 'Engagement Rings', href: LINKS.engagementRings },
       { label: 'Wedding Bands', href: LINKS.weddingBands },
@@ -16,7 +15,6 @@ const COLUMNS = [
   },
   {
     title: 'For Retailers',
-    width: 193,
     links: [
       { label: 'Become a Retailer', href: LINKS.becomeRetailer },
       { label: 'Retailer Login', href: LINKS.retailerLogin },
@@ -26,7 +24,6 @@ const COLUMNS = [
   },
   {
     title: 'Company',
-    width: 155,
     links: [
       { label: 'About Us', href: LINKS.about },
       { label: 'Our History', href: LINKS.history },
@@ -65,7 +62,7 @@ export default function Footer() {
         <hr className={s.rule} />
 
         <div className={s.cols}>
-          <div className={s.col} style={{ flex: '1 0 0' }}>
+          <div className={s.col}>
             <p className={s.title}>Diamond Emotions</p>
             <div className={s.info}>
               <div className={s.infoItem}>
@@ -94,7 +91,7 @@ export default function Footer() {
           </div>
 
           {COLUMNS.map((col) => (
-            <div key={col.title} className={s.col} style={{ width: col.width }}>
+            <div key={col.title} className={s.col}>
               <p className={s.title}>{col.title}</p>
               <ul className={s.list}>
                 {col.links.map((l) => (
