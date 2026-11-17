@@ -165,15 +165,18 @@
 }
 
 @media (max-width: 1200px) {
+  /* 2 x 2 link columns, map full width underneath */
   .cols {
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
   }
   .col {
-    flex: 1 1 200px !important;
     width: auto !important;
+    min-width: 0;
   }
   .map {
+    grid-column: 1 / -1;
     width: 100%;
     height: 300px;
   }
