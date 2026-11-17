@@ -21,7 +21,7 @@
   justify-content: center;
   gap: 16px;
   flex: 1 0 0;
-  padding: 80px calc(var(--g) + 80px) 80px 80px;
+  padding: 80px calc(var(--g) + var(--pad)) 80px var(--pad);
   background: var(--mist);
 }
 .title {
@@ -69,7 +69,7 @@
   overflow: visible;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 880px) {
   .section {
     flex-direction: column;
     min-height: 0;
@@ -80,6 +80,21 @@
   }
   .panel {
     padding: 56px var(--pad);
+  }
+  .text {
+    width: auto;
+    max-width: none;
+  }
+}
+
+
+/* 881-1200: keep the two columns side by side */
+@media (max-width: 1200px) and (min-width: 881px) {
+  .photo {
+    width: 50%;
+  }
+  .panel {
+    padding: 56px var(--pad) 56px 40px;
   }
   .text {
     width: auto;

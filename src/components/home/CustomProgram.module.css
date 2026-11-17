@@ -9,7 +9,7 @@
   justify-content: center;
   gap: 24px;
   flex: 1 0 0;
-  padding: 80px 80px 80px calc(var(--g) + 80px);
+  padding: 80px var(--pad) 80px calc(var(--g) + var(--pad));
   background: var(--forest);
 }
 .copy {
@@ -59,7 +59,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 880px) {
   .section {
     flex-direction: column-reverse;
     min-height: 0;
@@ -77,5 +77,16 @@
   .actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+
+/* 881-1200: keep the two columns side by side */
+@media (max-width: 1200px) and (min-width: 881px) {
+  .panel {
+    padding: 56px 40px 56px var(--pad);
+  }
+  .photo {
+    width: 50%;
   }
 }

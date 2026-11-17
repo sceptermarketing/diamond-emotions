@@ -8,7 +8,7 @@
   align-items: center;
   flex: 1 0 0;
   min-width: 0; /* the 495px copy overflows the padding, as in Figma */
-  padding: 80px 80px 80px calc(var(--g) + 80px);
+  padding: 80px var(--pad) 80px calc(var(--g) + var(--pad));
 }
 .copy {
   display: flex;
@@ -91,7 +91,7 @@
   font-size: 16px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 880px) {
   .section {
     flex-direction: column;
     min-height: 0;
@@ -115,5 +115,17 @@
   }
   .large .ringName {
     font-size: 14px;
+  }
+}
+
+
+/* 881-1200: keep the two columns side by side */
+@media (max-width: 1200px) and (min-width: 881px) {
+  .left {
+    padding: 56px 32px 56px var(--pad);
+  }
+  .right {
+    width: 55%;
+    padding: 40px var(--pad) 40px 32px;
   }
 }

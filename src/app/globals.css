@@ -157,10 +157,13 @@ button {
   outline-offset: 2px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1366px) {
   :root {
     --pad: 40px;
   }
+}
+
+@media (max-width: 1200px) {
   .h2 {
     font-size: 40px;
   }

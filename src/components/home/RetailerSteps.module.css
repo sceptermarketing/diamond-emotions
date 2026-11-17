@@ -22,7 +22,7 @@
   justify-content: center;
   gap: 16px;
   flex: 1 0 0;
-  padding: 80px calc(var(--g) + 80px) 80px 80px;
+  padding: 80px calc(var(--g) + var(--pad)) 80px var(--pad);
 }
 .content > * {
   max-width: 680px;
@@ -46,7 +46,7 @@
   text-underline-position: from-font;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 880px) {
   .section {
     flex-direction: column;
     min-height: 0;
@@ -64,5 +64,16 @@
   .actions {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+
+/* 881-1200: keep the two columns side by side */
+@media (max-width: 1200px) and (min-width: 881px) {
+  .photo {
+    width: 45%;
+  }
+  .content {
+    padding: 56px var(--pad) 56px 40px;
   }
 }

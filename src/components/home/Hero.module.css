@@ -145,16 +145,14 @@
 
 @media (max-width: 1200px) {
   .hero {
-    flex-direction: column;
-    height: auto;
+    height: 640px;
   }
   .left {
-    width: 100%;
-    padding: 48px var(--pad);
+    width: 46%;
+    padding: 48px 32px 48px var(--pad);
   }
-  .right {
-    flex: none;
-    height: 520px;
+  .title {
+    font-size: 40px;
   }
   .photo img {
     left: 0;
@@ -171,6 +169,24 @@
     bottom: 32px;
     left: 50%;
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 880px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .left {
+    width: 100%;
+    padding: 48px var(--pad);
+  }
+  .copy {
+    max-width: 560px;
+  }
+  .right {
+    flex: none;
+    height: 520px;
   }
 }
 
