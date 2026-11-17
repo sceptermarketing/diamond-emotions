@@ -57,6 +57,10 @@
   object-fit: cover;
   transition: transform 0.4s;
 }
+.img img.photo {
+  background: var(--white);
+  object-fit: contain;
+}
 .img img.crop {
   position: absolute;
   max-width: none;

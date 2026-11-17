@@ -1,0 +1,71 @@
+/* "Shop by style" row on department pages, in the drawer's tile style */
+.styles {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 40px var(--pad) 0;
+  font-family: var(--font-inter);
+}
+.heading {
+  margin-bottom: 20px;
+  color: #171b18;
+  font-size: 32px;
+  line-height: 1.1;
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  padding: 12px 10px;
+  border: 1px solid #daddd7;
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--forest);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+.tile:hover {
+  border-color: var(--forest);
+}
+.tile:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+.img {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  height: 64px;
+  overflow: hidden;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .styles {
+    padding-top: 28px;
+  }
+  .heading {
+    font-size: 26px;
+  }
+  .tiles {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
+  }
+}

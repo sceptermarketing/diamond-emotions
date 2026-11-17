@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { DEPARTMENTS, type Product } from '@/lib/collections';
+import { DEPARTMENTS, type CategoryTile, type Product } from '@/lib/collections';
 import FilterDrawer, { NO_FILTERS, type Applied } from './FilterDrawer';
 import s from './ProductGrid.module.css';
 
@@ -14,9 +14,15 @@ const SORTS = [
 ] as const;
 type SortId = (typeof SORTS)[number]['id'];
 
-type Props = { products: Product[]; basePath: string; department: string; category: string };
+type Props = {
+  products: Product[];
+  tiles: CategoryTile[];
+  department: string;
+  category: string;
+  typeLabel?: string;
+};
 
-export default function ProductGrid({ products, basePath, department, category }: Props) {
+export default function ProductGrid({ products, tiles, department, category, typeLabel }: Props) {
   const router = useRouter();
   const [shown, setShown] = useState(PAGE);
   const [filters, setFilters] = useState<Applied>({ ...NO_FILTERS, department, category });
@@ -26,7 +32,7 @@ export default function ProductGrid({ products, basePath, department, category }
   const toolsRef = useRef<HTMLDivElement>(null);
   const filterBtn = useRef<HTMLButtonElement>(null);
 
-  const active = filters.stones.length + filters.shapes.length + filters.settings.length;
+  const active = filters.types.length + filters.stones.length + filters.shapes.length + filters.settings.length;
 
   const closeDrawer = useCallback(() => {
     setDrawer(false);
@@ -39,7 +45,8 @@ export default function ProductGrid({ products, basePath, department, category }
       const d = DEPARTMENTS.find((x) => x.label === next.department);
       if (d) router.push(d.href);
     } else if (next.category !== category) {
-      router.push(basePath.replace(`${category}/`, `${next.category}/`));
+      const t = tiles.find((x) => x.slug === next.category);
+      if (t) router.push(t.href);
     }
     setFilters({ ...next, department, category });
     setShown(PAGE);
@@ -47,10 +54,11 @@ export default function ProductGrid({ products, basePath, department, category }
   };
 
   const list = useMemo(() => {
-    const { stones, shapes, settings } = filters;
+    const { types, stones, shapes, settings } = filters;
     const filtered = products.filter(
       (p) =>
-        (!stones.length || (p.stone && stones.includes(p.stone))) &&
+        (!types.length || p.types.some((x) => types.includes(x))) &&
+        (!stones.length || p.stones.some((x) => stones.includes(x))) &&
         (!shapes.length || p.shapes.some((x) => shapes.includes(x))) &&
         (!settings.length || p.settings.some((x) => settings.includes(x))),
     );
@@ -133,16 +141,20 @@ export default function ProductGrid({ products, basePath, department, category }
         </div>
       </div>
 
-      <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} />
+      <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} tiles={tiles} typeLabel={typeLabel} />
 
       <hr className={s.rule} />
 
       <ul className={s.grid}>
         {visible.map((p) => (
-          <li key={p.style}>
-            <Link href={`${basePath}${p.style.toLowerCase()}/`} className={s.card}>
+          <li key={p.slug}>
+            <Link href={p.href} className={s.card}>
               <span className={s.photo}>
-                <img src={p.image} alt={`${p.style} ${p.name}`} loading="lazy" />
+                {p.image ? (
+                  <img src={p.image} alt={p.alt} loading="lazy" />
+                ) : (
+                  <span className={s.noPhoto}>Photo coming soon</span>
+                )}
               </span>
               <span className={s.body}>
                 <span className={s.style}>{p.style}</span>

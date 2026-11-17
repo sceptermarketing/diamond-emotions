@@ -1,0 +1,762 @@
+[
+ {
+  "id": 16,
+  "slug": "diamond-fashion-rings",
+  "name": "Rings",
+  "parent": "diamond-fashion",
+  "count": 9,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/diamond-fashion-rings/"
+ },
+ {
+  "id": 32,
+  "slug": "color-pendants",
+  "name": "Pendants",
+  "parent": "color",
+  "count": 63,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color-pendants/"
+ },
+ {
+  "id": 38,
+  "slug": "diamond-bands",
+  "name": "Diamond Bands",
+  "parent": "wedding-bands",
+  "count": 320,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/diamond-bands/"
+ },
+ {
+  "id": 44,
+  "slug": "silver-pendants",
+  "name": "Pendants",
+  "parent": "sterling-silver",
+  "count": 36,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/silver-pendants/"
+ },
+ {
+  "id": 47,
+  "slug": "sterling-silver",
+  "name": "Sterling Silver",
+  "parent": null,
+  "count": 85,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/sterling-silver/"
+ },
+ {
+  "id": 58,
+  "slug": "diamond-fashion",
+  "name": "Diamond Fashion",
+  "parent": null,
+  "count": 106,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/diamond-fashion/"
+ },
+ {
+  "id": 59,
+  "slug": "pendants-diamond-fashion",
+  "name": "Pendants",
+  "parent": "diamond-fashion",
+  "count": 59,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/pendants-diamond-fashion/"
+ },
+ {
+  "id": 61,
+  "slug": "silver-earrings",
+  "name": "Earrings",
+  "parent": "sterling-silver",
+  "count": 28,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/silver-earrings/"
+ },
+ {
+  "id": 65,
+  "slug": "bridal",
+  "name": "Bridal",
+  "parent": null,
+  "count": 444,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bridal/"
+ },
+ {
+  "id": 66,
+  "slug": "engagement-rings",
+  "name": "Engagement Rings",
+  "parent": "bridal",
+  "count": 444,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/engagement-rings/"
+ },
+ {
+  "id": 77,
+  "slug": "3-stone",
+  "name": "3-Stone",
+  "parent": "engagement-rings",
+  "count": 43,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/3-stone/"
+ },
+ {
+  "id": 96,
+  "slug": "solitaire",
+  "name": "Solitaire",
+  "parent": "engagement-rings",
+  "count": 49,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/solitaire/"
+ },
+ {
+  "id": 103,
+  "slug": "earrings-diamond-fashion",
+  "name": "Earrings",
+  "parent": "diamond-fashion",
+  "count": 31,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/earrings-diamond-fashion/"
+ },
+ {
+  "id": 128,
+  "slug": "halo-designs",
+  "name": "Halo",
+  "parent": "engagement-rings",
+  "count": 111,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/halo-designs/"
+ },
+ {
+  "id": 512,
+  "slug": "mens-bands",
+  "name": "Men’s Bands",
+  "parent": "wedding-bands",
+  "count": 11,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/mens-bands/"
+ },
+ {
+  "id": 585,
+  "slug": "color-rings",
+  "name": "Rings",
+  "parent": "color",
+  "count": 43,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color-rings/"
+ },
+ {
+  "id": 990,
+  "slug": "twistals-bracelets",
+  "name": "Bracelets",
+  "parent": "twistals",
+  "count": 8,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twistals-bracelets/"
+ },
+ {
+  "id": 1037,
+  "slug": "bracelets-diamond-fashion",
+  "name": "Bracelets",
+  "parent": "diamond-fashion",
+  "count": 5,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bracelets-diamond-fashion/"
+ },
+ {
+  "id": 1150,
+  "slug": "twistals-earrings",
+  "name": "Earrings",
+  "parent": "twistals",
+  "count": 6,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twistals-earrings/"
+ },
+ {
+  "id": 1198,
+  "slug": "twistals-cuffs",
+  "name": "Cuffs",
+  "parent": "twistals",
+  "count": 7,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twistals-cuffs/"
+ },
+ {
+  "id": 1238,
+  "slug": "color",
+  "name": "Color Fashion",
+  "parent": null,
+  "count": 108,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color/"
+ },
+ {
+  "id": 1243,
+  "slug": "color-earrings",
+  "name": "Earrings",
+  "parent": "color",
+  "count": 2,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color-earrings/"
+ },
+ {
+  "id": 1278,
+  "slug": "twistals-lariat",
+  "name": "Lariat",
+  "parent": "twistals",
+  "count": 6,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twistals-lariat/"
+ },
+ {
+  "id": 1312,
+  "slug": "twistals",
+  "name": "Twistals",
+  "parent": null,
+  "count": 27,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twistals/"
+ },
+ {
+  "id": 1361,
+  "slug": "wedding-bands",
+  "name": "Wedding Bands",
+  "parent": null,
+  "count": 359,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/wedding-bands/"
+ },
+ {
+  "id": 1362,
+  "slug": "split-shank",
+  "name": "Split Shank",
+  "parent": "engagement-rings",
+  "count": 49,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/split-shank/"
+ },
+ {
+  "id": 1363,
+  "slug": "eternity",
+  "name": "Eternity",
+  "parent": "wedding-bands",
+  "count": 9,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/eternity/"
+ },
+ {
+  "id": 1364,
+  "slug": "shadow",
+  "name": "Shadow",
+  "parent": "wedding-bands",
+  "count": 17,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/shadow/"
+ },
+ {
+  "id": 1365,
+  "slug": "curved",
+  "name": "Curved",
+  "parent": "wedding-bands",
+  "count": 42,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/curved/"
+ },
+ {
+  "id": 1367,
+  "slug": "bands",
+  "name": "Bands",
+  "parent": "diamond-fashion",
+  "count": 2,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bands/"
+ },
+ {
+  "id": 1370,
+  "slug": "twist",
+  "name": "Twist",
+  "parent": "engagement-rings",
+  "count": 27,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twist/"
+ },
+ {
+  "id": 1373,
+  "slug": "invisible",
+  "name": "Invisible",
+  "parent": "engagement-rings",
+  "count": 13,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/invisible/"
+ },
+ {
+  "id": 1374,
+  "slug": "fancy",
+  "name": "Fancy",
+  "parent": "engagement-rings",
+  "count": 111,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/fancy/"
+ },
+ {
+  "id": 1376,
+  "slug": "carved",
+  "name": "Carved",
+  "parent": "engagement-rings",
+  "count": 26,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/carved/"
+ },
+ {
+  "id": 1377,
+  "slug": "carved-wedding-bands",
+  "name": "Carved",
+  "parent": "wedding-bands",
+  "count": 21,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/carved-wedding-bands/"
+ },
+ {
+  "id": 1435,
+  "slug": "fancy-pendants",
+  "name": "Pendant",
+  "parent": "fashion",
+  "count": 19,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/fancy-pendants/"
+ },
+ {
+  "id": 1436,
+  "slug": "bracelet",
+  "name": "Bracelets",
+  "parent": "fashion",
+  "count": 2,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bracelet/"
+ },
+ {
+  "id": 1437,
+  "slug": "earring",
+  "name": "Earrings",
+  "parent": "fashion",
+  "count": 13,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/earring/"
+ },
+ {
+  "id": 1473,
+  "slug": "classic",
+  "name": "Classic",
+  "parent": "engagement-rings",
+  "count": 196,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/classic/"
+ },
+ {
+  "id": 1474,
+  "slug": "cathedral",
+  "name": "Cathedral",
+  "parent": "engagement-rings",
+  "count": 30,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/cathedral/"
+ },
+ {
+  "id": 1475,
+  "slug": "plain",
+  "name": "Plain",
+  "parent": "engagement-rings",
+  "count": 3,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/plain/"
+ },
+ {
+  "id": 1476,
+  "slug": "bypass",
+  "name": "Bypass",
+  "parent": "engagement-rings",
+  "count": 15,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bypass/"
+ },
+ {
+  "id": 1477,
+  "slug": "straight",
+  "name": "Straight",
+  "parent": "engagement-rings",
+  "count": 5,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/straight/"
+ },
+ {
+  "id": 1478,
+  "slug": "vintage",
+  "name": "Vintage",
+  "parent": "engagement-rings",
+  "count": 6,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/vintage/"
+ },
+ {
+  "id": 1479,
+  "slug": "classic-wedding-bands",
+  "name": "Classic",
+  "parent": "wedding-bands",
+  "count": 258,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/classic-wedding-bands/"
+ },
+ {
+  "id": 1480,
+  "slug": "fitted",
+  "name": "Fitted",
+  "parent": "wedding-bands",
+  "count": 88,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/fitted/"
+ },
+ {
+  "id": 1481,
+  "slug": "fancy-wedding-bands",
+  "name": "Fancy",
+  "parent": "wedding-bands",
+  "count": 33,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/fancy-wedding-bands/"
+ },
+ {
+  "id": 1482,
+  "slug": "vintage-wedding-bands",
+  "name": "Vintage",
+  "parent": "wedding-bands",
+  "count": 8,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/vintage-wedding-bands/"
+ },
+ {
+  "id": 1484,
+  "slug": "bypass-wedding-bands",
+  "name": "Bypass",
+  "parent": "wedding-bands",
+  "count": 4,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bypass-wedding-bands/"
+ },
+ {
+  "id": 1485,
+  "slug": "invisible-wedding-bands",
+  "name": "Invisible",
+  "parent": "wedding-bands",
+  "count": 1,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/invisible-wedding-bands/"
+ },
+ {
+  "id": 1486,
+  "slug": "twist-wedding-bands",
+  "name": "Twist",
+  "parent": "wedding-bands",
+  "count": 4,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/twist-wedding-bands/"
+ },
+ {
+  "id": 1487,
+  "slug": "two-stone",
+  "name": "Two-stone",
+  "parent": "wedding-bands",
+  "count": 1,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/two-stone/"
+ },
+ {
+  "id": 1704,
+  "slug": "plain-wedding-bands",
+  "name": "Plain",
+  "parent": "wedding-bands",
+  "count": 12,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/plain-wedding-bands/"
+ },
+ {
+  "id": 1705,
+  "slug": "halo",
+  "name": "Halo",
+  "parent": "wedding-bands",
+  "count": 2,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/halo/"
+ },
+ {
+  "id": 1709,
+  "slug": "fashion",
+  "name": "Fashion",
+  "parent": null,
+  "count": 41,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/fashion/"
+ },
+ {
+  "id": 1712,
+  "slug": "uncategorized",
+  "name": "Uncategorized",
+  "parent": null,
+  "count": 16,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/uncategorized/"
+ },
+ {
+  "id": 1716,
+  "slug": "swarovski-crystal-collection",
+  "name": "Swarovski Crystal Collection",
+  "parent": null,
+  "count": 68,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/swarovski-crystal-collection/"
+ },
+ {
+  "id": 1723,
+  "slug": "earrings",
+  "name": "Earrings",
+  "parent": "swarovski-crystal-collection",
+  "count": 22,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/earrings/"
+ },
+ {
+  "id": 1732,
+  "slug": "pendants",
+  "name": "Pendants",
+  "parent": "swarovski-crystal-collection",
+  "count": 23,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/pendants/"
+ },
+ {
+  "id": 1733,
+  "slug": "bracelets",
+  "name": "Bracelets",
+  "parent": "swarovski-crystal-collection",
+  "count": 10,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bracelets/"
+ },
+ {
+  "id": 1734,
+  "slug": "necklace",
+  "name": "Necklace",
+  "parent": "swarovski-crystal-collection",
+  "count": 20,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/necklace/"
+ },
+ {
+  "id": 1739,
+  "slug": "bracelets-silver",
+  "name": "Bracelets",
+  "parent": "sterling-silver",
+  "count": 19,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bracelets-silver/"
+ },
+ {
+  "id": 1769,
+  "slug": "custom",
+  "name": "Custom",
+  "parent": null,
+  "count": 38,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/custom/"
+ },
+ {
+  "id": 1770,
+  "slug": "rings",
+  "name": "Rings",
+  "parent": "custom",
+  "count": 10,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/rings/"
+ },
+ {
+  "id": 1771,
+  "slug": "pendants-custom",
+  "name": "Pendants",
+  "parent": "custom",
+  "count": 7,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/pendants-custom/"
+ },
+ {
+  "id": 1772,
+  "slug": "color-rings-custom",
+  "name": "Color Rings",
+  "parent": "custom",
+  "count": 9,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color-rings-custom/"
+ },
+ {
+  "id": 1773,
+  "slug": "color-pendants-custom",
+  "name": "Color Pendants",
+  "parent": "custom",
+  "count": 16,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/color-pendants-custom/"
+ },
+ {
+  "id": 1774,
+  "slug": "necklaces",
+  "name": "Necklaces",
+  "parent": "sterling-silver",
+  "count": 37,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/necklaces/"
+ },
+ {
+  "id": 1775,
+  "slug": "necklaces-alloy",
+  "name": "Necklaces",
+  "parent": "fashion",
+  "count": 21,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/necklaces-alloy/"
+ },
+ {
+  "id": 1817,
+  "slug": "sets-sterling-silver",
+  "name": "Sets",
+  "parent": "sterling-silver",
+  "count": 17,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/sets-sterling-silver/"
+ },
+ {
+  "id": 1820,
+  "slug": "gerri-g-collection",
+  "name": "Gerri G Collection",
+  "parent": null,
+  "count": 102,
+  "description": "",
+  "image": "/content/2020/08/Gerri-G-Logo2.webp",
+  "oldUrl": "https://diamondemotions.com/product-category/gerri-g-collection/"
+ },
+ {
+  "id": 1821,
+  "slug": "necklaces-gerri-g-collection",
+  "name": "Necklaces",
+  "parent": "gerri-g-collection",
+  "count": 45,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/necklaces-gerri-g-collection/"
+ },
+ {
+  "id": 1822,
+  "slug": "bracelets-gerri-g-collection",
+  "name": "Bracelets",
+  "parent": "gerri-g-collection",
+  "count": 9,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/bracelets-gerri-g-collection/"
+ },
+ {
+  "id": 1823,
+  "slug": "pendants-gerri-g-collection",
+  "name": "Pendants",
+  "parent": "gerri-g-collection",
+  "count": 51,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/pendants-gerri-g-collection/"
+ },
+ {
+  "id": 1825,
+  "slug": "sets-gerri-g-collection",
+  "name": "Sets",
+  "parent": "gerri-g-collection",
+  "count": 18,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/sets-gerri-g-collection/"
+ },
+ {
+  "id": 1827,
+  "slug": "earrings-gerri-g-collection",
+  "name": "Earrings",
+  "parent": "gerri-g-collection",
+  "count": 42,
+  "description": "",
+  "image": null,
+  "oldUrl": "https://diamondemotions.com/product-category/earrings-gerri-g-collection/"
+ }
+]

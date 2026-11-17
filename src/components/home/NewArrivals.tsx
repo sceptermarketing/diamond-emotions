@@ -3,38 +3,25 @@
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { LINKS } from '@/lib/links';
+import type { Product } from '@/lib/collections';
 import { useScroller } from './useScroller';
 import c from './Carousel.module.css';
 import s from './NewArrivals.module.css';
 
-// Cards 2-4 are crops of one Figma image (new-sprite.jpg); `crop` is the Figma fill crop.
-type Product = { code: string; text: string; img: string; crop?: CSSProperties };
+// Real styles from the catalogue (passed in by the home page). Until a style's photo is imported, its card
+// shows the design's photo for that position (cards 2-4 are crops of one Figma image, new-sprite.jpg).
+type Fallback = { img: string; crop?: CSSProperties };
 
 const SPRITE = { top: 0, height: '100%', width: '344.68%' };
 
-const PRODUCTS: Product[] = [
-  { code: 'ER9445', text: 'Elegant split shank prong set semi-engagement with an oval center.', img: '/images/new-1.jpg' },
-  {
-    code: 'ER9445',
-    text: 'Elegant split shank prong set semi-engagement with an oval center.',
-    img: '/images/new-sprite.jpg',
-    crop: { ...SPRITE, left: 0 },
-  },
-  {
-    code: 'ER9445',
-    text: 'Elegant split shank prong set semi-engagement with an oval center.',
-    img: '/images/new-sprite.jpg',
-    crop: { ...SPRITE, left: '-115.8%' },
-  },
-  {
-    code: 'ER9445',
-    text: 'Elegant split shank prong set semi-engagement with an oval center.',
-    img: '/images/new-sprite.jpg',
-    crop: { ...SPRITE, left: '-237.76%' },
-  },
+const FALLBACKS: Fallback[] = [
+  { img: '/images/new-1.jpg' },
+  { img: '/images/new-sprite.jpg', crop: { ...SPRITE, left: 0 } },
+  { img: '/images/new-sprite.jpg', crop: { ...SPRITE, left: '-115.8%' } },
+  { img: '/images/new-sprite.jpg', crop: { ...SPRITE, left: '-237.76%' } },
 ];
 
-export default function NewArrivals() {
+export default function NewArrivals({ products }: { products: Product[] }) {
   const { ref, prev, next, progress } = useScroller<HTMLUListElement>();
 
   return (
@@ -59,17 +46,30 @@ export default function NewArrivals() {
       </div>
 
       <ul ref={ref} className={`${c.track} ${s.track}`}>
-        {PRODUCTS.map((p, i) => (
-          <li key={i} className={s.item}>
-            <Link href={LINKS.newArrivals} className={s.card}>
-              <span className={s.img}>
-                <img src={p.img} alt="" loading="lazy" className={p.crop ? s.crop : undefined} style={p.crop} />
-              </span>
-              <span className={s.code}>{p.code}</span>
-              <span className={s.text}>{p.text}</span>
-            </Link>
-          </li>
-        ))}
+        {products.map((p, i) => {
+          const fallback = FALLBACKS[i % FALLBACKS.length];
+          return (
+            <li key={p.slug} className={s.item}>
+              <Link href={p.href} className={s.card}>
+                <span className={s.img}>
+                  {p.image ? (
+                    <img src={p.image} alt={p.alt} loading="lazy" className={s.photo} />
+                  ) : (
+                    <img
+                      src={fallback.img}
+                      alt=""
+                      loading="lazy"
+                      className={fallback.crop ? s.crop : undefined}
+                      style={fallback.crop}
+                    />
+                  )}
+                </span>
+                <span className={s.code}>{p.style}</span>
+                <span className={s.text}>{p.name}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
 
       <div className={c.progress} style={{ background: 'var(--mist)' }}>

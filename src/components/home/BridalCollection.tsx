@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LINKS } from '@/lib/links';
+import { collectionHref } from '@/lib/catalog';
 import s from './BridalCollection.module.css';
 
 type Style = { name: string; img: string; offset?: string };
@@ -26,12 +27,14 @@ const ROWS: Style[][] = [
   ],
 ];
 
-const slug = (name: string) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+// the style's collection page when it has products, otherwise all engagement rings
+const href = (name: string) => (name === 'Custom' ? LINKS.custom : collectionHref(name) ?? LINKS.bridal);
 
 function Ring({ style, large }: { style: Style; large?: boolean }) {
   return (
     <li>
-      <Link href={`${LINKS.engagementRings}${slug(style.name)}/`} className={`${s.ring} ${large ? s.large : ''}`}>
+      <Link href={href(style.name)} className={`${s.ring} ${large ? s.large : ''}`}>
         <span className={s.ringImg}>
           <img
             src={`/images/ring-${style.img}.jpg`}

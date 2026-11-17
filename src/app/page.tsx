@@ -12,6 +12,7 @@ import NewArrivals from '@/components/home/NewArrivals';
 import Testimonials from '@/components/home/Testimonials';
 import Faq from '@/components/home/Faq';
 import FinalCta from '@/components/home/FinalCta';
+import { HOME_NEW_ARRIVALS } from '@/lib/catalog';
 
 export default function HomePage() {
   return (
@@ -26,7 +27,7 @@ export default function HomePage() {
         <CustomProgram />
         <Milestones />
         <OurStory />
-        <NewArrivals />
+        <NewArrivals products={HOME_NEW_ARRIVALS} />
         <Testimonials />
         <Faq />
         <FinalCta />

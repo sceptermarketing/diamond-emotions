@@ -1,0 +1,1178 @@
+[
+ {
+  "from": "/product-category/diamond-fashion-rings/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color-pendants/",
+  "to": "/fashion/color-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/diamond-bands/",
+  "to": "/wedding-bands/diamond-bands/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/silver-pendants/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/sterling-silver/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/pendants-diamond-fashion/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/silver-earrings/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bridal/",
+  "to": "/bridal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/engagement-rings/",
+  "to": "/bridal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/3-stone/",
+  "to": "/bridal/3-stone/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/solitaire/",
+  "to": "/bridal/solitaire/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/earrings-diamond-fashion/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/halo-designs/",
+  "to": "/bridal/halo/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/mens-bands/",
+  "to": "/wedding-bands/mens-bands/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color-rings/",
+  "to": "/fashion/color-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twistals-bracelets/",
+  "to": "/fashion/twistals/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bracelets-diamond-fashion/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twistals-earrings/",
+  "to": "/fashion/twistals/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twistals-cuffs/",
+  "to": "/fashion/twistals/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color/",
+  "to": "/fashion/color-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color-earrings/",
+  "to": "/fashion/color-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twistals-lariat/",
+  "to": "/fashion/twistals/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twistals/",
+  "to": "/fashion/twistals/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/wedding-bands/",
+  "to": "/wedding-bands/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/split-shank/",
+  "to": "/bridal/split-shank/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/eternity/",
+  "to": "/wedding-bands/eternity/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/shadow/",
+  "to": "/wedding-bands/shadow/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/curved/",
+  "to": "/wedding-bands/curved/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bands/",
+  "to": "/fashion/diamond-fashion/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twist/",
+  "to": "/bridal/twist/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/invisible/",
+  "to": "/bridal/invisible/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/fancy/",
+  "to": "/bridal/fancy/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/carved/",
+  "to": "/bridal/carved/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/carved-wedding-bands/",
+  "to": "/wedding-bands/carved/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/fancy-pendants/",
+  "to": "/fashion/fashion-jewelry/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bracelet/",
+  "to": "/fashion/fashion-jewelry/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/earring/",
+  "to": "/fashion/fashion-jewelry/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/classic/",
+  "to": "/bridal/classic/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/cathedral/",
+  "to": "/bridal/cathedral/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/plain/",
+  "to": "/bridal/plain/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bypass/",
+  "to": "/bridal/bypass/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/straight/",
+  "to": "/bridal/straight/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/vintage/",
+  "to": "/bridal/vintage/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/classic-wedding-bands/",
+  "to": "/wedding-bands/classic/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/fitted/",
+  "to": "/wedding-bands/fitted/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/fancy-wedding-bands/",
+  "to": "/wedding-bands/fancy/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/vintage-wedding-bands/",
+  "to": "/wedding-bands/vintage/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bypass-wedding-bands/",
+  "to": "/wedding-bands/bypass/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/invisible-wedding-bands/",
+  "to": "/wedding-bands/invisible/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/twist-wedding-bands/",
+  "to": "/wedding-bands/twist/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/two-stone/",
+  "to": "/wedding-bands/two-stone/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/plain-wedding-bands/",
+  "to": "/wedding-bands/plain/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/halo/",
+  "to": "/wedding-bands/halo/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/fashion/",
+  "to": "/fashion/fashion-jewelry/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/swarovski-crystal-collection/",
+  "to": "/fashion/swarovski-crystal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/earrings/",
+  "to": "/fashion/swarovski-crystal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/pendants/",
+  "to": "/fashion/swarovski-crystal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bracelets/",
+  "to": "/fashion/swarovski-crystal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/necklace/",
+  "to": "/fashion/swarovski-crystal/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bracelets-silver/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/custom/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/rings/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/pendants-custom/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color-rings-custom/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/color-pendants-custom/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/necklaces/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/necklaces-alloy/",
+  "to": "/fashion/fashion-jewelry/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/sets-sterling-silver/",
+  "to": "/fashion/sterling-silver/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/necklaces-gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/bracelets-gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/pendants-gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/sets-gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/product-category/earrings-gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/",
+  "live": true,
+  "kind": "category"
+ },
+ {
+  "from": "/checkout/",
+  "to": "/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/thank-you/",
+  "to": "/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/checkout/cart/",
+  "to": "/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/retailer-registration/",
+  "to": "/become-a-retailer/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/engagement-rings/",
+  "to": "/bridal/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/store-locator/",
+  "to": "/find-a-jeweler/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/marketing-banners/",
+  "to": "/for-retailers/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/new-designs/",
+  "to": "/new-arrivals/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/testimonials/",
+  "to": "/about/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/my-account/",
+  "to": "/retailer-login/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/view-order/",
+  "to": "/retailer-login/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/products/",
+  "to": "/bridal/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/archives/",
+  "to": "/blog/",
+  "live": true,
+  "kind": "page"
+ },
+ {
+  "from": "/portfolio-items/bgr22591/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/bgr23550/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/cp1101pk/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr20209/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr20219/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr22594/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr22781/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr22894/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr23116/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/egr24008/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/er2012/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/er9275/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr2154/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr21867/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22308/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22594/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22757/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22871/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22885/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22981/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr22998/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23028/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23070/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23125/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23643/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23718/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23828/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr23978/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24011/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24132/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24220/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24231/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24261/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24265/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24363/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr19232/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr20876/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/pgr24220-2/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22399/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22400/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22506/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22533/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22554/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22556/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22564/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22566/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22599/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22749/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22784/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22807/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22808/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22830/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22831-2/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22844/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22853/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22854/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22868/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22870/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22872/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22883/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22884/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22898/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22903/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22924/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22925/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22934/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22960/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr22961/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23007/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23080/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23089/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23108/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23281/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23479/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23483/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23540/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23541/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23542/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23572/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23644/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23666/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23717/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23735/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23748/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23770/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23789/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23830/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23843/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23988/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr23995/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24007/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24049/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24082/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24076/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24133/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24152/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24219/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24221/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24299/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24338/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24358/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24362/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24368/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24432/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24440/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24454/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/portfolio-items/rgr24472/",
+  "to": "/custom/",
+  "live": true,
+  "kind": "portfolio"
+ },
+ {
+  "from": "/mens-bands/",
+  "to": "/wedding-bands/mens-bands/",
+  "live": true,
+  "kind": "page"
+ }
+]

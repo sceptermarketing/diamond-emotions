@@ -1,0 +1,18 @@
+.noPhoto {
+  min-height: 220px;
+}
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.extra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+  font-family: var(--font-inter);
+  font-size: 13px;
+  color: var(--muted);
+}

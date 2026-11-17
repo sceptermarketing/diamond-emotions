@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://diamondemotions.com'),
   title: 'Diamond Emotions | Wholesale Bridal & Fine Jewelry for Independent Jewelers',
   description:
     'Diamond Emotions designs engagement rings, wedding bands and fine jewelry for independent jewelers. Wholesale only, family-founded in East Lansing, Michigan, since 2009.',

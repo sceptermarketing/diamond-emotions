@@ -1,23 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  BRIDAL_CATEGORIES,
   DEPARTMENTS,
-  SETTINGS,
-  STONE_SHAPES,
+  SHAPE_ICONS,
+  type CategoryTile,
   type Product,
-  type Setting,
-  type StoneShape,
 } from "@/lib/collections";
 import s from "./FilterDrawer.module.css";
 
 export type Filters = {
+  types: string[];
   stones: string[];
-  shapes: StoneShape[];
-  settings: Setting[];
+  shapes: string[];
+  settings: string[];
 };
-export const NO_FILTERS: Filters = { stones: [], shapes: [], settings: [] };
+export const NO_FILTERS: Filters = { types: [], stones: [], shapes: [], settings: [] };
 
 export type Applied = Filters & { department: string; category: string };
 
@@ -27,9 +25,19 @@ type Props = {
   onApply: (next: Applied) => void;
   applied: Applied;
   products: Product[];
+  tiles: CategoryTile[];
+  typeLabel?: string;
 };
 
-type Section = "categories" | "stone" | "shape" | "setting";
+type Section = "categories" | "type" | "stone" | "shape" | "setting";
+
+// every value of one attribute across the page's products, A–Z, with how many products have it
+function options(products: Product[], key: "types" | "stones" | "shapes" | "settings") {
+  const counts = new Map<string, number>();
+  for (const p of products)
+    for (const v of new Set(p[key])) counts.set(v, (counts.get(v) ?? 0) + 1);
+  return [...counts].sort(([a], [b]) => a.localeCompare(b));
+}
 
 const toggle = <T,>(list: T[], v: T) =>
   list.includes(v) ? list.filter((x) => x !== v) : [...list, v];
@@ -40,7 +48,14 @@ export default function FilterDrawer({
   onApply,
   applied,
   products,
+  tiles,
+  typeLabel = "Product Type",
 }: Props) {
+  const types = useMemo(() => options(products, "types"), [products]);
+  const stones = useMemo(() => options(products, "stones"), [products]);
+  const shapes = useMemo(() => options(products, "shapes"), [products]);
+  const settings = useMemo(() => options(products, "settings"), [products]);
+
   // choices stay pending until "View Results"
   const [draft, setDraft] = useState<Applied>(applied);
   const [closed, setClosed] = useState<Section[]>([]);
@@ -61,7 +76,6 @@ export default function FilterDrawer({
     };
   }, [open, applied, onClose]);
 
-  const count = (fn: (p: Product) => boolean) => products.filter(fn).length;
   const isOpen = (sec: Section) => !closed.includes(sec);
   const flip = (sec: Section) => setClosed((c) => toggle(c, sec));
 
@@ -160,7 +174,7 @@ export default function FilterDrawer({
         </div>
 
         <div className={s.scroll}>
-          {draft.department === "Bridal" && (
+          {draft.department === applied.department && tiles.length > 0 && (
             <div className={s.section}>
               {head("categories", "Product Categories")}
               <div
@@ -168,7 +182,7 @@ export default function FilterDrawer({
                 className={s.cats}
                 hidden={!isOpen("categories")}
               >
-                {BRIDAL_CATEGORIES.map((c) => (
+                {tiles.map((c) => (
                   <button
                     key={c.slug}
                     type="button"
@@ -184,7 +198,7 @@ export default function FilterDrawer({
                         alt=""
                         loading="lazy"
                         style={
-                          "contain" in c ? { objectFit: "contain" } : undefined
+                          c.contain ? { objectFit: "contain" } : undefined
                         }
                       />
                     </span>
@@ -195,22 +209,37 @@ export default function FilterDrawer({
             </div>
           )}
 
+          {types.length > 1 && (
+            <div className={s.section}>
+              {head("type", typeLabel)}
+              <div id="filter-type" className={s.settings} hidden={!isOpen("type")}>
+                {types.map(([t, n]) => (
+                  <div key={t}>
+                    {check(t, n, draft.types.includes(t), () =>
+                      setDraft((d) => ({ ...d, types: toggle(d.types, t) })),
+                    true)}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {stones.length > 0 && (
           <div className={s.section}>
             {head("stone", "Stone Type")}
             <div id="filter-stone" hidden={!isOpen("stone")}>
-              {check(
-                "Diamond",
-                count((p) => p.stone === "Diamond"),
-                draft.stones.includes("Diamond"),
-                () =>
-                  setDraft((d) => ({
-                    ...d,
-                    stones: toggle(d.stones, "Diamond"),
-                  })),
-              )}
+              {stones.map(([st, n]) => (
+                <div key={st}>
+                  {check(st, n, draft.stones.includes(st), () =>
+                    setDraft((d) => ({ ...d, stones: toggle(d.stones, st) })),
+                  )}
+                </div>
+              ))}
             </div>
           </div>
+          )}
 
+          {shapes.length > 0 && (
           <div className={s.section}>
             {head("shape", "Stone Shape")}
             <div
@@ -219,7 +248,7 @@ export default function FilterDrawer({
               hidden={!isOpen("shape")}
             >
               <div className={s.shapes}>
-                {STONE_SHAPES.map((sh) => (
+                {shapes.map(([sh, n]) => (
                   <button
                     key={sh}
                     type="button"
@@ -230,14 +259,14 @@ export default function FilterDrawer({
                     }
                   >
                     <img
-                      src={`/images/filters/${sh.toLowerCase()}.svg`}
+                      src={`/images/filters/${SHAPE_ICONS.includes(sh.toLowerCase()) ? sh.toLowerCase() : "round"}.svg`}
                       alt=""
                       width={40}
                       height={40}
                     />
                     <span className={s.shapeName}>{sh}</span>
                     <span className={s.shapeNum}>
-                      ({count((p) => p.shapes.includes(sh))})
+                      ({n})
                     </span>
                   </button>
                 ))}
@@ -248,19 +277,21 @@ export default function FilterDrawer({
               </p>
             </div>
           </div>
+          )}
 
-          <div className={`${s.section} ${s.last}`}>
+          {settings.length > 0 && (
+          <div className={s.section}>
             {head("setting", "Setting")}
             <div
               id="filter-setting"
               className={s.settings}
               hidden={!isOpen("setting")}
             >
-              {SETTINGS.map((st) => (
+              {settings.map(([st, n]) => (
                 <div key={st}>
                   {check(
                     st,
-                    count((p) => p.settings.includes(st)),
+                    n,
                     draft.settings.includes(st),
                     () =>
                       setDraft((d) => ({
@@ -273,6 +304,7 @@ export default function FilterDrawer({
               ))}
             </div>
           </div>
+          )}
         </div>
 
         <div className={s.actions}>

@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import s from './Faq.module.css';
 
-// Questions as in the design (5 and 6 repeat 1 and 2 there). The design has no answers yet, so these
-// are holding answers that send people to the team; replace with the client's answers.
+// The design's first four questions (holding answers that send people to the team until the client sends
+// theirs), then two from the old site's FAQ and Custom Order pages in place of the design's repeats.
 const FAQS = [
   {
     q: 'What is the minimum order requirement for wholesale purchases?',
@@ -23,12 +23,12 @@ const FAQS = [
     a: 'Approved retailers log in to their retailer account to browse the full catalog and place orders. New to Diamond Emotions? Apply to become a retailer.',
   },
   {
-    q: 'What is the minimum order requirement for wholesale purchases?',
-    a: 'Order requirements are set up with each retailer when the account is opened. Call us at 517.574.4209 and we will walk you through them.',
+    q: 'If we send a drawing, can you build the piece?',
+    a: "Yes. Whether your customer is a beautiful painter or an artist of stick figures, we'll take the idea, recreate it as a drawing and CAD for approval, then bring it to life.",
   },
   {
-    q: 'How do wholesale pricing and payment terms work?',
-    a: 'Wholesale pricing and terms are shared once you apply to become a retailer. Our team will go over them with you when you meet the line.',
+    q: 'How do I place a custom order?',
+    a: 'Submit the Custom Order Form with the style number or a sketch, metal and stone details. Our staff follows up within 24 business hours to confirm the details with you.',
   },
 ];
 

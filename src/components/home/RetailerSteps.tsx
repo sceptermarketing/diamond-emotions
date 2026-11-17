@@ -3,16 +3,16 @@ import { LINKS, PHONE, PHONE_HREF } from '@/lib/links';
 import NumberedList from './NumberedList';
 import s from './RetailerSteps.module.css';
 
-// Step 3's text repeats step 1's in the Figma design; kept as designed until the client sends copy.
+// Step copy drawn from the old site's "Become a Retailer" page
 const STEPS = [
   {
     title: 'Apply',
-    text: "We've stood behind the counter. We know what it takes to close a bridal sale — and what gets in the way.",
+    text: 'Tell us about your store. It takes a few minutes, and our sales manager follows up right away.',
   },
   { title: 'Meet the line', text: "We'll walk you through the collection, wholesale pricing and our custom program." },
   {
     title: 'Start selling',
-    text: "We've stood behind the counter. We know what it takes to close a bridal sale — and what gets in the way.",
+    text: 'Stock your case at competitive wholesale prices, take custom orders, and count on industry-leading support.',
   },
 ];
 
