@@ -2,11 +2,6 @@
   position: relative;
   z-index: 30;
 }
-/* inner pages: the logo row and menu bar stay at the top of the window; the top bar scrolls away */
-.solid {
-  position: sticky;
-  top: -36px;
-}
 
 /* Top bar: 38px, Inter 14 / 1.6 */
 .topbar {
@@ -50,14 +45,19 @@
   line-height: 1.45;
 }
 
-/* Logo row. Homepage: laid over the hero, 515px logo cell | buttons over the photo. */
+/* Main bar. Homepage: laid over the hero, 515px logo cell | menu and buttons over the photo. */
+.main {
+  position: relative;
+}
 .bar {
   display: grid;
-  grid-template-columns: calc(100% * 0.35764) 1fr; /* 515 at 1440, same as the hero */
-  /* keeps the logo in the centered 1440 column (percentages here resolve against the full-width bar) */
+  grid-template-columns: calc(100% * 0.35764) 1fr auto; /* 515 at 1440, same as the hero */
+  align-items: center;
+  /* keeps the bar in the centered 1440 column (percentages here resolve against the full-width bar) */
   padding: 0 var(--g);
 }
 .logoCell {
+  align-self: start;
   padding: 20.76px 0 0 40px;
 }
 .logo img {
@@ -65,11 +65,95 @@
   height: 52.01px;
   object-fit: cover;
 }
+.nav {
+  padding-left: 32px;
+}
 .navCell {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 24px 32px;
+  padding: 24px 32px 24px 0;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: normal;
+  white-space: nowrap;
+  cursor: pointer;
+}
+/* the open item turns semibold; the hidden bold copy keeps its width, so the menu doesn't shift */
+.menuLabel {
+  display: inline-grid;
+}
+.menuLabel::after {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  font-weight: 600;
+  visibility: hidden;
+}
+.menuLink:hover .menuLabel,
+.menuOpen .menuLabel {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.menuOpen .menuLabel {
+  font-weight: 600;
+}
+.menuLink:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.chev {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.chev img {
+  position: absolute;
+  top: 41.67%;
+  left: 29.17%;
+  width: 41.66%;
+  height: 20.83%;
+  overflow: visible;
+  transition: transform 0.2s ease;
+}
+.menuOpen .chev img {
+  transform: rotate(180deg);
+}
+
+/* dropdown (Figma 821:2122 …): full width under the bar */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+}
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .actions {
@@ -123,80 +207,8 @@
   background: var(--ink);
 }
 
-/* Menu bar (Figma "All navigation tabs", 821:2123): forest, 81px, seven tabs spread across */
-.tabs {
-  position: relative;
-  background: var(--forest);
-  font-family: var(--font-inter);
-}
-.tabList {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0 var(--edge);
-  list-style: none;
-}
-.tab {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 28px 0;
-  border: 0;
-  background: none;
-  color: var(--white);
-  font-size: 17px;
-  line-height: 1.45;
-  white-space: nowrap;
-  cursor: pointer;
-}
-/* the open tab turns semibold; the hidden bold copy keeps its width, so the bar doesn't shift */
-.tabLabel {
-  display: inline-grid;
-}
-.tabLabel::after {
-  content: attr(data-label);
-  height: 0;
-  overflow: hidden;
-  font-weight: 600;
-  visibility: hidden;
-}
-.tab:hover .tabLabel,
-.tabOpen .tabLabel {
-  text-decoration: underline;
-  text-underline-position: from-font;
-}
-.tabOpen .tabLabel {
-  font-weight: 600;
-}
-.tab:focus-visible {
-  outline: 2px solid var(--white);
-  outline-offset: 4px;
-}
-.tab img {
-  flex: none;
-}
-
-/* dropdown: full width under the menu bar */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
-}
-.dropdownOpen {
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
 @media (min-width: 1201px) {
-  /* homepage: logo row and menu bar over the hero; the bar row lets clicks through to the hero */
+  /* homepage: over the hero; the bar lets clicks through to the hero outside its items */
   .overlay .main {
     position: absolute;
     top: 38px;
@@ -206,30 +218,25 @@
   .overlay .bar {
     pointer-events: none;
   }
-  .overlay .bar > * {
+  .overlay .bar > *,
+  .overlay .dropdown {
     pointer-events: auto;
   }
 
-  /* homepage once scrolled past the hero header: the inner-page header, fixed to the top */
-  .stuck .main {
-    position: fixed;
-    top: 0;
-    animation: slideDown 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  /* inner pages and the homepage's sticky state: white logo row (Figma 786:817) */
+  /* inner pages: white bar, logo | centred menu | buttons */
   .solid .bar,
   .stuck .bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    grid-template-columns: 1fr auto 1fr;
     gap: 32px;
     padding: 23px var(--edge-sm);
+  }
+  .solid .bar {
     background: var(--white);
-    pointer-events: auto;
+    border-bottom: 1px solid #daddd7;
   }
   .solid .logoCell,
   .stuck .logoCell {
+    align-self: center;
     padding: 0;
   }
   .solid .logo img,
@@ -237,19 +244,52 @@
     display: block;
     width: 170px;
     height: 56.8px;
+    object-fit: contain;
+  }
+  .solid .nav,
+  .stuck .nav {
+    padding: 0;
   }
   .solid .navCell,
   .stuck .navCell {
     padding: 0;
   }
-  .solid .login,
-  .stuck .login {
+  .solid .menuLink {
+    color: #374151;
+  }
+  .solid .login {
     color: #4b5563;
   }
-  .solid .cta,
-  .stuck .cta {
+  .solid .cta {
     background: var(--forest);
     color: var(--white);
+  }
+
+  /* scrolled past the header: green bar fixed to the top, white logo, menu and buttons */
+  .stuck .main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideDown 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .stuck .bar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background: var(--forest);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    pointer-events: auto;
+  }
+  .stuck .logo img {
+    height: 44.7px;
+  }
+  .stuck .menuLink,
+  .stuck .login {
+    color: var(--white);
+  }
+  .stuck .cta {
+    background: var(--white);
+    color: var(--forest);
   }
 }
 
@@ -267,7 +307,8 @@
     animation: none;
   }
   .dropdown,
-  .dropdownOpen {
+  .dropdownOpen,
+  .chev img {
     transition: none;
   }
 }
@@ -287,11 +328,10 @@
   .solid {
     top: -36px;
   }
-  .tabs {
+  .nav {
     display: none;
   }
   .bar {
-    position: static;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -560,12 +600,43 @@
   }
 }
 
-/* 1201–1366: tighter logo row buttons */
+/* 1201–1366: tighter menu so it stays over the hero photo instead of spilling past the screen */
 @media (min-width: 1201px) and (max-width: 1366px) {
+  .nav {
+    padding-left: 16px;
+  }
   .navCell {
-    padding: 24px 16px;
+    padding: 24px 16px 24px 0;
+  }
+  .menu {
+    gap: 4px;
+  }
+  .menuLink {
+    gap: 2px;
+  }
+  .chev {
+    width: 14px;
+  }
+  .chev img {
+    left: 20.4%;
+    width: 59.2%;
   }
   .actions {
-    gap: 8px;
+    gap: 6px;
+  }
+  .menuLink,
+  .login,
+  .cta {
+    font-size: 13px;
+  }
+  .cta {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .solid .bar,
+  .stuck .bar {
+    gap: 16px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }

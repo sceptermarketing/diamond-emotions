@@ -9,9 +9,10 @@ import MegaMenu from './MegaMenu';
 import s from './Header.module.css';
 
 /**
- * Top bar, logo row and the dark menu bar with its dropdowns (Figma "Menu", 821:2620).
- * Homepage: the logo row and menu bar sit over the hero; once they scroll away, the inner-page header
- * sticks to the top of the window. Inner pages: the header sticks to the top (the top bar scrolls away).
+ * Top bar + main header with the menu dropdowns (Figma "Menu", 821:2620). On the homepage the bar sits
+ * over the hero: the logo on the hero's white left panel (515px) and the menu over the photo, in white.
+ * Inner pages: white bar, menu centred. Once the header scrolls out of view (desktop), a green bar with
+ * the logo, menu and buttons sticks to the top of the window.
  */
 type Props = {
   /** overlay: laid over the homepage hero. solid: white logo row for inner pages. */
@@ -25,6 +26,7 @@ export default function Header({ variant = 'overlay' }: Props) {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [menu, setMenu] = useState<string | null>(null); // open dropdown
   const [stuck, setStuck] = useState(false);
+  const [reserve, setReserve] = useState(0); // inner pages: header height kept while the bar is fixed
   const mainRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const leaveTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -37,16 +39,16 @@ export default function Header({ variant = 'overlay' }: Props) {
   // a new page closes any open dropdown
   useEffect(() => setMenu(null), [pathname]);
 
-  // homepage: once the overlay header has scrolled out of view, the inner-page header sticks to the top
+  // desktop: once the header has scrolled out of view, a green bar sticks to the top of the window
   useEffect(() => {
-    if (solid) return;
     const wide = window.matchMedia('(min-width: 1201px)');
-    let bottom = 0; // where the overlay header ends, measured while it is not stuck
+    let bottom = 0; // where the header ends, measured while it is in place
     const onScroll = () => {
       const main = mainRef.current;
       if (!main || !wide.matches) return setStuck(false);
       if (getComputedStyle(main).position !== 'fixed') {
         bottom = main.getBoundingClientRect().bottom + window.scrollY;
+        setReserve(main.offsetHeight);
       }
       setStuck(window.scrollY > bottom);
     };
@@ -57,7 +59,7 @@ export default function Header({ variant = 'overlay' }: Props) {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [solid]);
+  }, []);
 
   // dropdown: Escape or a click outside closes it
   useEffect(() => {
@@ -109,10 +111,13 @@ export default function Header({ variant = 'overlay' }: Props) {
     };
   }, [open]);
 
-  const light = solid || stuck; // dark text on the white logo row
+  const dark = solid && !stuck; // grey menu text on the white inner-page bar
 
   return (
-    <header className={`${s.header} ${solid ? s.solid : s.overlay} ${stuck ? s.stuck : ''}`}>
+    <header
+      className={`${s.header} ${solid ? s.solid : s.overlay} ${stuck ? s.stuck : ''}`}
+      style={stuck && solid ? { paddingBottom: reserve } : undefined}
+    >
       <div className={s.topbar}>
         <p>Wholesale only · Serving independent jewelers since 2009</p>
         {solid ? (
@@ -133,15 +138,56 @@ export default function Header({ variant = 'overlay' }: Props) {
         <div className={s.bar}>
           <div className={s.logoCell}>
             <Link href={LINKS.home} className={s.logo} aria-label="Diamond Emotions home">
-              <img src="/images/logo.png" alt="Diamond Emotions" width={156} height={52} />
+              <img
+                src={stuck ? '/images/logo-white.png' : '/images/logo.png'}
+                alt="Diamond Emotions"
+                width={156}
+                height={52}
+              />
             </Link>
           </div>
+
+          <nav ref={navRef} aria-label="Main" className={s.nav} onPointerLeave={(e) => hoverLeave(e.pointerType)}>
+            <ul className={s.menu}>
+              {NAV.map((item, i) => {
+                const isOpen = menu === item.label;
+                return (
+                  <li key={item.label}>
+                    <button
+                      type="button"
+                      id={`menu-tab-${i}`}
+                      className={`${s.menuLink} ${isOpen ? s.menuOpen : ''}`}
+                      aria-expanded={isOpen}
+                      aria-controls={`menu-panel-${i}`}
+                      onPointerEnter={(e) => hoverOpen(item.label, e.pointerType)}
+                      onClick={() => setMenu(isOpen ? null : item.label)}
+                    >
+                      <span className={s.menuLabel} data-label={item.label}>
+                        {item.label}
+                      </span>
+                      <span className={s.chev} aria-hidden>
+                        <img src={dark ? '/images/icons/chevron-gray.svg' : '/images/icons/chevron-white.svg'} alt="" />
+                      </span>
+                    </button>
+                    <div
+                      id={`menu-panel-${i}`}
+                      className={`${s.dropdown} ${isOpen ? s.dropdownOpen : ''}`}
+                      inert={!isOpen}
+                      onPointerEnter={(e) => hoverOpen(item.label, e.pointerType)}
+                    >
+                      <MegaMenu item={item} onNavigate={closeMenu} />
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
 
           <div className={s.navCell}>
             <div className={s.actions}>
               <Link href={LINKS.retailerLogin} className={s.login}>
                 <span className={s.badge} aria-hidden>
-                  <img src={light ? '/images/icons/badge-gray.svg' : '/images/icons/badge-white.svg'} alt="" />
+                  <img src={dark ? '/images/icons/badge-gray.svg' : '/images/icons/badge-white.svg'} alt="" />
                 </span>
                 Retail Login
               </Link>
@@ -165,45 +211,6 @@ export default function Header({ variant = 'overlay' }: Props) {
             </button>
           </div>
         </div>
-
-        <nav ref={navRef} aria-label="Main" className={s.tabs} onPointerLeave={(e) => hoverLeave(e.pointerType)}>
-          <ul className={s.tabList}>
-            {NAV.map((item, i) => {
-              const isOpen = menu === item.label;
-              return (
-                <li key={item.label}>
-                  <button
-                    type="button"
-                    id={`menu-tab-${i}`}
-                    className={`${s.tab} ${isOpen ? s.tabOpen : ''}`}
-                    aria-expanded={isOpen}
-                    aria-controls={`menu-panel-${i}`}
-                    onPointerEnter={(e) => hoverOpen(item.label, e.pointerType)}
-                    onClick={() => setMenu(isOpen ? null : item.label)}
-                  >
-                    <span className={s.tabLabel} data-label={item.label}>
-                      {item.label}
-                    </span>
-                    <img
-                      src={isOpen ? '/images/menu/chevron-up-white.svg' : '/images/menu/chevron-down-white.svg'}
-                      alt=""
-                      width={16}
-                      height={16}
-                    />
-                  </button>
-                  <div
-                    id={`menu-panel-${i}`}
-                    className={`${s.dropdown} ${isOpen ? s.dropdownOpen : ''}`}
-                    inert={!isOpen}
-                    onPointerEnter={(e) => hoverOpen(item.label, e.pointerType)}
-                  >
-                    <MegaMenu item={item} onNavigate={closeMenu} />
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
       </div>
 
       <div className={`${s.backdrop} ${open ? s.backdropOpen : ''}`} onClick={close} aria-hidden />
