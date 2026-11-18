@@ -61,6 +61,22 @@
   height: 100%;
   object-fit: contain;
 }
+button.photo {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  cursor: zoom-in;
+}
+button.photo img {
+  transition: transform 0.35s ease;
+}
+button.photo:hover img {
+  transform: scale(1.04);
+}
+button.photo:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
 .none {
   color: var(--muted);
   font-size: 12px;

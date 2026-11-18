@@ -59,6 +59,77 @@
   color: var(--muted);
   font-size: 13px;
 }
+/* the main photo: hover magnifies it under the pointer, click opens the lightbox */
+.zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--white);
+  cursor: zoom-in;
+}
+.zoom img {
+  transform-origin: var(--zx, 50%) var(--zy, 50%);
+  transition: transform 0.3s ease;
+}
+.lensOn img {
+  transform: scale(2.2);
+  transition: transform 0.3s ease, transform-origin 0.08s linear;
+}
+.lensOn .zoomHint {
+  opacity: 0 !important;
+}
+.zoom:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 3px;
+}
+.zoomHint {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(32, 40, 36, 0.82);
+  color: var(--white);
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+/* a quiet hint until the pointer arrives; phones always show it */
+.zoomHint {
+  opacity: 1;
+  transform: none;
+}
+.zoom:focus-visible .zoomHint {
+  opacity: 1;
+}
+.hintTouch {
+  display: none;
+}
+@media (hover: none) {
+  .hintMouse {
+    display: none;
+  }
+  .hintTouch {
+    display: inline;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zoom img,
+  .lensOn img {
+    transition: none;
+  }
+}
 .thumbs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
