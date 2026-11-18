@@ -3,13 +3,15 @@ import Link from 'next/link';
 import PageShell from '@/components/content/PageShell';
 import PageIntro from '@/components/content/PageIntro';
 import Form from '@/components/forms/Form';
+import StoreLocator, { type Store } from '@/components/locator/StoreLocator';
+import stores from '@/data/stores.json';
 import { EMAIL, LINKS, PHONE, PHONE_HREF } from '@/lib/links';
 import l from '@/components/content/Layout.module.css';
 
 export const metadata: Metadata = {
   title: 'Find a Diamond Emotions Jeweler Near You',
   description:
-    'Diamond Emotions is sold only through independent jewelers. Tell us where you are and we will point you to an authorized jeweler near you.',
+    'Find an authorized Diamond Emotions jeweler near you. Search more than 200 independent jewelers by ZIP code, city or state.',
   alternates: { canonical: LINKS.findJeweler },
 };
 
@@ -19,16 +21,23 @@ export default function FindJewelerPage() {
       <PageIntro
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Find a Jeweler' }]}
         title="Find a Jeweler"
-        text="Diamond Emotions is sold only through independent jewelers. Tell us where you are and we’ll point you to an authorized jeweler near you."
+        text={`Diamond Emotions is sold only through independent jewelers. Search our ${stores.length} authorized jewelers by ZIP code, city or state — or use your location.`}
         image="/images/collections/cathedral-hero.jpg"
       />
-      <section className={l.section}>
+      <section className={`${l.section} ${l.tight}`} aria-label="Store locator">
+        <StoreLocator stores={stores as Store[]} />
+        <p className={l.lead}>
+          Looking to become a retailer? <Link href={LINKS.becomeRetailer}>Register here →</Link>
+        </p>
+      </section>
+      <div className={l.tinted}>
+      <section className={l.tintedInner}>
         <div className={l.split}>
           <div>
             <div className={l.head}>
-              <h2 className={l.heading}>Where Are You Shopping?</h2>
+              <h2 className={l.heading}>Can’t Find a Jeweler Nearby?</h2>
               <p className={l.lead}>
-                Found a style you love? Include the style number and we’ll let you know which jeweler near you can show it to you.
+                Tell us where you are — and the style number you love — and we’ll point you to the nearest jeweler who can show it to you.
               </p>
             </div>
             <Form
@@ -65,6 +74,7 @@ export default function FindJewelerPage() {
           </aside>
         </div>
       </section>
+      </div>
     </PageShell>
   );
 }
