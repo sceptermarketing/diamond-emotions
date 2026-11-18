@@ -69,8 +69,9 @@
   font-size: 14px;
   font-weight: 600;
 }
-.article {
-  max-width: 760px;
+/* blog posts: the article fills the column up to the sidebar (beats the prose block's reading width) */
+div.article {
+  max-width: none;
 }
 .asideHead {
   margin-top: 8px;
