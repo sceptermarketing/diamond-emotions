@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   title: 'Diamond Emotions | Wholesale Bridal & Fine Jewelry for Independent Jewelers',
   description:
     'Diamond Emotions designs engagement rings, wedding bands and fine jewelry for independent jewelers. Wholesale only, family-founded in East Lansing, Michigan, since 2009.',
+  // kept out of search results until launch (see next.config.mjs)
+  robots: process.env.SITE_INDEXABLE === 'true' ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
