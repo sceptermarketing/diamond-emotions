@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { DEPARTMENTS, type CategoryTile, type Product, type TilesByDepartment } from '@/lib/collections';
-import FilterDrawer, { NO_FILTERS, type Applied } from './FilterDrawer';
+import FilterDrawer, { NO_FILTERS, type Applied, type Filters } from './FilterDrawer';
 import s from './ProductGrid.module.css';
 
 const PAGE = 16; // 4 rows of 4, as in the design
@@ -13,6 +13,33 @@ const SORTS = [
   { id: 'style-desc', label: 'Style number: high to low' },
 ] as const;
 type SortId = (typeof SORTS)[number]['id'];
+
+// Applied filters and sort live in the URL (?metal=Platinum&shape=Round&sort=style-desc), so they stay
+// active when the drawer moves to another page, on refresh and with the Back button.
+const FILTER_KEYS = [
+  ['types', 'type', 'Type'],
+  ['stones', 'stone', 'Stone'],
+  ['shapes', 'shape', 'Shape'],
+  ['settings', 'setting', 'Setting'],
+  ['metals', 'metal', 'Metal'],
+  ['colors', 'color', 'Metal Color'],
+] as const;
+
+function toQuery(f: Filters, sort: SortId) {
+  const q = new URLSearchParams();
+  for (const [key, param] of FILTER_KEYS) for (const v of f[key]) q.append(param, v);
+  if (sort !== 'style-asc') q.set('sort', sort);
+  const str = q.toString();
+  return str ? `?${str}` : '';
+}
+
+function fromQuery(search: string) {
+  const q = new URLSearchParams(search);
+  const filters = { ...NO_FILTERS };
+  for (const [key, param] of FILTER_KEYS) filters[key] = [...new Set(q.getAll(param))].slice(0, 30);
+  const sort = SORTS.find((o) => o.id === q.get('sort'))?.id ?? 'style-asc';
+  return { filters, sort };
+}
 
 type Props = {
   products: Product[];
@@ -32,13 +59,37 @@ export default function ProductGrid({ products, tilesByDept, department, categor
   const [sort, setSort] = useState<SortId>('style-asc');
   const [menu, setMenu] = useState<'sort' | null>(null);
   const [drawer, setDrawer] = useState(false);
+  const [ready, setReady] = useState(false); // filters read from the URL
   const toolsRef = useRef<HTMLDivElement>(null);
   const filterBtn = useRef<HTMLButtonElement>(null);
 
-  const active = (['types', 'stones', 'shapes', 'settings', 'metals', 'colors'] as const).reduce(
-    (n, k) => n + filters[k].length,
-    0,
+  // pick up filters carried in the URL (from the drawer on another page, a refresh or Back)
+  useEffect(() => {
+    const fromUrl = fromQuery(window.location.search);
+    setFilters((f) => ({ ...f, ...fromUrl.filters }));
+    setSort(fromUrl.sort);
+    setReady(true);
+  }, []);
+
+  // keep the URL in step with what is applied
+  useEffect(() => {
+    if (!ready) return;
+    const { pathname, hash } = window.location;
+    window.history.replaceState(window.history.state, '', `${pathname}${toQuery(filters, sort)}${hash}`);
+  }, [ready, filters, sort]);
+
+  const pills = FILTER_KEYS.flatMap(([key, , label]) =>
+    filters[key].map((value) => ({ key, value, label: key === 'types' && typeLabel ? typeLabel : label })),
   );
+  const active = pills.length;
+  const removePill = (key: keyof Filters, value: string) => {
+    setFilters((f) => ({ ...f, [key]: f[key].filter((x) => x !== value) }));
+    setShown(PAGE);
+  };
+  const clearFilters = () => {
+    setFilters({ ...NO_FILTERS, ...here });
+    setShown(PAGE);
+  };
 
   const closeDrawer = useCallback(() => {
     setDrawer(false);
@@ -46,18 +97,17 @@ export default function ProductGrid({ products, tilesByDept, department, categor
   }, []);
 
   const apply = (next: Applied) => {
-    // another department, category or product type lives on its own page
+    // another department, category or product type lives on its own page; the filters go with it
     const deptChanged = next.department !== department;
+    let href: string | undefined;
     if (next.category && (deptChanged || next.category !== category)) {
-      const t = tilesByDept[next.department]?.find((x) => x.slug === next.category);
-      if (t) router.push(t.href);
+      href = tilesByDept[next.department]?.find((x) => x.slug === next.category)?.href;
     } else if (deptChanged) {
-      const d = DEPARTMENTS.find((x) => x.label === next.department);
-      if (d) router.push(d.href);
+      href = DEPARTMENTS.find((x) => x.label === next.department)?.href;
     } else if (next.sub !== sub) {
-      const t = subTiles?.find((x) => x.slug === next.sub);
-      if (t) router.push(t.href);
+      href = subTiles?.find((x) => x.slug === next.sub)?.href;
     }
+    if (href) router.push(`${href}${toQuery(next, sort)}`);
     setFilters({ ...next, ...here });
     setShown(PAGE);
     closeDrawer();
@@ -155,6 +205,28 @@ export default function ProductGrid({ products, tilesByDept, department, categor
 
       <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} tilesByDept={tilesByDept} subTiles={subTiles} typeLabel={typeLabel} />
 
+      {pills.length > 0 && (
+        <div className={s.pills} aria-label="Active filters">
+          {pills.map((p) => (
+            <button
+              key={`${p.key}-${p.value}`}
+              type="button"
+              className={s.pill}
+              aria-label={`Remove filter ${p.label}: ${p.value}`}
+              onClick={() => removePill(p.key, p.value)}
+            >
+              <span className={s.pillLabel}>{p.label}:</span> {p.value}
+              <span className={s.pillX} aria-hidden>
+                ×
+              </span>
+            </button>
+          ))}
+          <button type="button" className={s.clearAll} onClick={clearFilters}>
+            Clear all
+          </button>
+        </div>
+      )}
+
       <hr className={s.rule} />
 
       <ul className={s.grid}>
@@ -184,7 +256,7 @@ export default function ProductGrid({ products, tilesByDept, department, categor
       {list.length === 0 && (
         <p className={s.empty}>
           No styles match these filters.{' '}
-          <button type="button" onClick={() => setFilters({ ...NO_FILTERS, ...here })}>
+          <button type="button" onClick={clearFilters}>
             Clear filters
           </button>
         </p>

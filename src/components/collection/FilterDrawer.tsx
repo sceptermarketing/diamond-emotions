@@ -44,13 +44,16 @@ type Props = {
 type Section = "categories" | "sub" | "type" | "stone" | "shape" | "setting" | "metal" | "color";
 
 // every value of one attribute across the page's products, A–Z, with how many products have it
+// (values already applied stay listed with (0), so they can be unticked after moving to another page)
 function options(
   products: Product[],
   key: "types" | "stones" | "shapes" | "settings" | "metals" | "colors",
+  selected: string[] = [],
 ) {
   const counts = new Map<string, number>();
   for (const p of products)
     for (const v of new Set(p[key])) counts.set(v, (counts.get(v) ?? 0) + 1);
+  for (const v of selected) if (!counts.has(v)) counts.set(v, 0);
   return [...counts].sort(([a], [b]) => a.localeCompare(b));
 }
 
@@ -67,12 +70,12 @@ export default function FilterDrawer({
   subTiles = [],
   typeLabel,
 }: Props) {
-  const types = useMemo(() => options(products, "types"), [products]);
-  const metals = useMemo(() => options(products, "metals"), [products]);
-  const colors = useMemo(() => options(products, "colors"), [products]);
-  const stones = useMemo(() => options(products, "stones"), [products]);
-  const shapes = useMemo(() => options(products, "shapes"), [products]);
-  const settings = useMemo(() => options(products, "settings"), [products]);
+  const types = useMemo(() => options(products, "types", applied.types), [products, applied.types]);
+  const metals = useMemo(() => options(products, "metals", applied.metals), [products, applied.metals]);
+  const colors = useMemo(() => options(products, "colors", applied.colors), [products, applied.colors]);
+  const stones = useMemo(() => options(products, "stones", applied.stones), [products, applied.stones]);
+  const shapes = useMemo(() => options(products, "shapes", applied.shapes), [products, applied.shapes]);
+  const settings = useMemo(() => options(products, "settings", applied.settings), [products, applied.settings]);
 
   // choices stay pending until "View Results"
   const [draft, setDraft] = useState<Applied>(applied);

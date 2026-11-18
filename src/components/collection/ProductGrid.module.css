@@ -88,6 +88,69 @@
   font-weight: 600;
 }
 
+/* active filters, under the toolbar */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px 7px 14px;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  background: var(--ivory);
+  color: var(--forest);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.pill:hover {
+  background: #efe9dc;
+}
+.pillLabel {
+  color: var(--muted);
+  font-weight: 400;
+}
+.pillX {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 1;
+}
+.pill:hover .pillX {
+  background: var(--forest);
+  color: var(--white);
+}
+.pill:focus-visible,
+.clearAll:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+.clearAll {
+  padding: 7px 4px;
+  border: 0;
+  background: none;
+  color: #e11d48;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.clearAll:hover {
+  text-decoration: underline;
+}
+
 .rule {
   height: 0;
   margin: 17px 0;
