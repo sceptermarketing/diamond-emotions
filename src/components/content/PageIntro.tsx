@@ -9,11 +9,12 @@ type Props = {
   title: string;
   text?: ReactNode;
   image?: string;
+  imagePosition?: string; // object-position of the photo, e.g. '75% 50%'
   children?: ReactNode; // buttons or meta under the text
 };
 
 /** Inner-page intro in the collection page's style: ivory panel, breadcrumb, serif title, photo on the right */
-export default function PageIntro({ crumbs, title, text, image, children }: Props) {
+export default function PageIntro({ crumbs, title, text, image, imagePosition, children }: Props) {
   return (
     <section className={`${s.section} ${image ? '' : p.noPhoto}`}>
       <div className={s.copy}>
@@ -24,7 +25,7 @@ export default function PageIntro({ crumbs, title, text, image, children }: Prop
       </div>
       {image && (
         <div className={s.photo}>
-          <img src={image} alt="" fetchPriority="high" />
+          <img src={image} alt="" fetchPriority="high" style={imagePosition ? { objectPosition: imagePosition } : undefined} />
         </div>
       )}
     </section>

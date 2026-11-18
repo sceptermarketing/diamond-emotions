@@ -22,7 +22,8 @@ export default function AboutPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         title="About Diamond Emotions"
         text="Diamond Emotions designs engagement rings, wedding bands and fine jewelry for independent jewelers — and only for independent jewelers. Family-founded in East Lansing, Michigan, since 2009."
-        image="/images/collections/cathedral-hero.jpg"
+        image="/images/about-bridal-banner.webp"
+        imagePosition="72% 30%"
       >
         <Link href={LINKS.history} className="btn btn-sm btn-dark">
           Read Our History
