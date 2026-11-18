@@ -1,0 +1,271 @@
+/* Custom Design Process page (old site's content and images, new site's type and colours) */
+.section {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 72px var(--pad);
+  font-family: var(--font-inter);
+}
+.tinted {
+  background: var(--mist);
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.heading {
+  color: #171b18;
+  font-size: 44px;
+  line-height: 1.08;
+}
+.lead {
+  max-width: 560px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.lead a {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+/* How it works: "Are you creative…?" image beside the three steps */
+.how {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 64px;
+  align-items: center;
+}
+.howImage {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+.howCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stepLinks {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #e5e7eb;
+}
+.stepLinks a {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+  color: #171b18;
+  font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: padding-left 0.25s ease, color 0.2s ease;
+}
+.stepLinks a:hover {
+  padding-left: 6px;
+  color: var(--forest);
+}
+.num {
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* the three steps */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--white);
+  scroll-margin-top: 140px;
+}
+.stepImage {
+  aspect-ratio: 1;
+  padding: 24px;
+  background: var(--white);
+}
+.stepImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.stepBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 28px 30px;
+  border-top: 1px solid #eef0ec;
+}
+.stepNum {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.stepTitle {
+  color: #171b18;
+  font-size: 32px;
+  line-height: 1.1;
+}
+.stepText {
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Which color do you want? */
+.color {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 64px;
+  align-items: center;
+}
+.colorCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.colorImage {
+  width: 100%;
+  height: auto;
+}
+.metals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #171b18;
+  font-size: 14px;
+  font-weight: 500;
+}
+.metals li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.swatch {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+}
+
+/* Check out our new custom design pieces! */
+.band {
+  background: var(--forest);
+  color: var(--white);
+}
+.bandInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 72px var(--pad);
+  font-family: var(--font-inter);
+  text-align: center;
+}
+.bandTitle {
+  font-size: 44px;
+  line-height: 1.1;
+}
+.bandText {
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* contact form */
+.ask {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  align-items: start;
+}
+.ask > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 1200px) {
+  .how,
+  .color,
+  .ask {
+    gap: 40px;
+  }
+  .heading,
+  .bandTitle {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 880px) {
+  .how,
+  .color,
+  .ask {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .step {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  }
+  .stepBody {
+    border-top: 0;
+    border-left: 1px solid #eef0ec;
+  }
+}
+
+@media (max-width: 640px) {
+  .section,
+  .bandInner {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .heading,
+  .bandTitle {
+    font-size: 30px;
+  }
+  .step {
+    display: flex;
+  }
+  .stepBody {
+    border-top: 1px solid #eef0ec;
+    border-left: 0;
+  }
+  .stepTitle {
+    font-size: 26px;
+  }
+}
