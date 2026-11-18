@@ -210,7 +210,7 @@ export const NAV: NavItem[] = [
         links: [
           { label: 'Explore Custom Designs', href: LINKS.custom },
           { label: 'Custom Design Process', href: LINKS.customProcess },
-          // the design keeps custom work on a call-to-order flow, so this goes to the team
+          { label: 'Custom Order Form', href: LINKS.customOrder },
           { label: 'Discuss a Custom Design', href: LINKS.contact },
         ],
       },
