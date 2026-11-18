@@ -236,7 +236,40 @@
   object-fit: cover;
 }
 
-/* checkbox rows (Stone Type, Setting) */
+/* Product Type: links to the line's type pages */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chip {
+  padding: 8px 14px;
+  border: 1px solid #daddd7;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--forest);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.45;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.chip:hover {
+  border-color: var(--forest);
+}
+.chipOn,
+.chipOn:hover {
+  border: 1.5px solid var(--forest);
+  padding: 7.5px 13.5px;
+  background: var(--ivory);
+  font-weight: 500;
+}
+.chip:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+}
+
+/* checkbox rows (Stone Type, Setting, Metal, Metal Color) */
 .check {
   display: flex;
   align-items: center;

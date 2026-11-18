@@ -12,6 +12,8 @@ export type Product = {
   shapes: string[];
   settings: string[];
   types: string[]; // product type within a fashion line (Pendants, Earrings…) or the line itself
+  metals: string[]; // 14K, 18KT, Platinum…
+  colors: string[]; // metal colors: White, Rose, Yellow…
 };
 
 // "Product Categories" tile in the filter drawer, linking to a collection page
@@ -27,9 +29,15 @@ export type Collection = {
   title: string;
   intro: string;
   heroImage: string;
-  typeLabel?: string; // drawer heading for the `types` filter
+  typeLabel?: string; // drawer heading for the `types` checkbox filter (Fashion and Earrings pages)
+  tileSlug?: string; // the category tile this page belongs to, when not its own slug (fashion type pages)
+  subTiles?: CategoryTile[]; // fashion lines: "All …" plus a link per product type page
+  subSlug?: string; // the current product type ('' for the line's own page)
   products: Product[];
 };
+
+/** Category tiles for each department, keyed by department label */
+export type TilesByDepartment = Record<string, CategoryTile[]>;
 
 export const DEPARTMENTS = [
   { label: 'Bridal', href: '/bridal/' },

@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import Faq from '@/components/home/Faq';
 import FinalCta from '@/components/home/FinalCta';
 import type { CategoryTile, Collection } from '@/lib/collections';
+import { TILES_BY_DEPARTMENT } from '@/lib/catalog';
 import CollectionIntro from './CollectionIntro';
 import ProductGrid from './ProductGrid';
 import s from './CollectionView.module.css';
@@ -51,9 +52,11 @@ export default function CollectionView({ collection: c, tiles = [], showTiles = 
         )}
         <ProductGrid
           products={c.products}
-          tiles={tiles}
+          tilesByDept={TILES_BY_DEPARTMENT}
           department={c.department}
-          category={c.slug}
+          category={c.tileSlug ?? c.slug}
+          subTiles={c.subTiles}
+          sub={c.subSlug ?? ''}
           typeLabel={c.typeLabel}
         />
         <Faq />

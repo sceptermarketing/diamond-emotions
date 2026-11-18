@@ -6,6 +6,7 @@ import {
   SHAPE_ICONS,
   type CategoryTile,
   type Product,
+  type TilesByDepartment,
 } from "@/lib/collections";
 import s from "./FilterDrawer.module.css";
 
@@ -14,10 +15,20 @@ export type Filters = {
   stones: string[];
   shapes: string[];
   settings: string[];
+  metals: string[];
+  colors: string[];
 };
-export const NO_FILTERS: Filters = { types: [], stones: [], shapes: [], settings: [] };
+export const NO_FILTERS: Filters = {
+  types: [],
+  stones: [],
+  shapes: [],
+  settings: [],
+  metals: [],
+  colors: [],
+};
 
-export type Applied = Filters & { department: string; category: string };
+/** filters plus where they apply: department, category tile and (fashion lines) product type page */
+export type Applied = Filters & { department: string; category: string; sub: string };
 
 type Props = {
   open: boolean;
@@ -25,14 +36,18 @@ type Props = {
   onApply: (next: Applied) => void;
   applied: Applied;
   products: Product[];
-  tiles: CategoryTile[];
+  tilesByDept: TilesByDepartment;
+  subTiles?: CategoryTile[];
   typeLabel?: string;
 };
 
-type Section = "categories" | "type" | "stone" | "shape" | "setting";
+type Section = "categories" | "sub" | "type" | "stone" | "shape" | "setting" | "metal" | "color";
 
 // every value of one attribute across the page's products, A–Z, with how many products have it
-function options(products: Product[], key: "types" | "stones" | "shapes" | "settings") {
+function options(
+  products: Product[],
+  key: "types" | "stones" | "shapes" | "settings" | "metals" | "colors",
+) {
   const counts = new Map<string, number>();
   for (const p of products)
     for (const v of new Set(p[key])) counts.set(v, (counts.get(v) ?? 0) + 1);
@@ -48,10 +63,13 @@ export default function FilterDrawer({
   onApply,
   applied,
   products,
-  tiles,
-  typeLabel = "Product Type",
+  tilesByDept,
+  subTiles = [],
+  typeLabel,
 }: Props) {
   const types = useMemo(() => options(products, "types"), [products]);
+  const metals = useMemo(() => options(products, "metals"), [products]);
+  const colors = useMemo(() => options(products, "colors"), [products]);
   const stones = useMemo(() => options(products, "stones"), [products]);
   const shapes = useMemo(() => options(products, "shapes"), [products]);
   const settings = useMemo(() => options(products, "settings"), [products]);
@@ -75,6 +93,14 @@ export default function FilterDrawer({
       html.style.overflow = prev;
     };
   }, [open, applied, onClose]);
+
+  // the drawer shows the categories of whichever department is chosen in it
+  const tiles = tilesByDept[draft.department] ?? [];
+  // product type links belong to the page's own line, so they only show while that line is chosen
+  const showSub =
+    subTiles.length > 0 &&
+    draft.department === applied.department &&
+    draft.category === applied.category;
 
   const isOpen = (sec: Section) => !closed.includes(sec);
   const flip = (sec: Section) => setClosed((c) => toggle(c, sec));
@@ -140,10 +166,20 @@ export default function FilterDrawer({
               <select
                 aria-label="Department"
                 value={draft.department}
-                onChange={(e) =>
-                  setDraft((d) => ({ ...d, department: e.target.value }))
-                }
+                onChange={(e) => {
+                  const department = e.target.value;
+                  setDraft((d) =>
+                    department === applied.department
+                      ? { ...d, department, category: applied.category, sub: applied.sub }
+                      : { ...d, department, category: "", sub: "" },
+                  );
+                }}
               >
+                {!draft.department && (
+                  <option value="" disabled>
+                    Choose a department
+                  </option>
+                )}
                 {DEPARTMENTS.map((d) => (
                   <option key={d.label} value={d.label}>
                     {d.label}
@@ -165,6 +201,7 @@ export default function FilterDrawer({
                   ...NO_FILTERS,
                   department: applied.department,
                   category: applied.category,
+                  sub: applied.sub,
                 })
               }
             >
@@ -174,7 +211,7 @@ export default function FilterDrawer({
         </div>
 
         <div className={s.scroll}>
-          {draft.department === applied.department && tiles.length > 0 && (
+          {tiles.length > 0 && (
             <div className={s.section}>
               {head("categories", "Product Categories")}
               <div
@@ -189,7 +226,11 @@ export default function FilterDrawer({
                     aria-pressed={draft.category === c.slug}
                     className={`${s.cat} ${draft.category === c.slug ? s.catOn : ""}`}
                     onClick={() =>
-                      setDraft((d) => ({ ...d, category: c.slug }))
+                      setDraft((d) => ({
+                        ...d,
+                        category: c.slug,
+                        sub: d.department === applied.department && c.slug === applied.category ? applied.sub : "",
+                      }))
                     }
                   >
                     <span className={s.catImg}>
@@ -209,7 +250,26 @@ export default function FilterDrawer({
             </div>
           )}
 
-          {types.length > 1 && (
+          {showSub && (
+            <div className={s.section}>
+              {head("sub", "Product Type")}
+              <div id="filter-sub" className={s.chips} hidden={!isOpen("sub")}>
+                {subTiles.map((t) => (
+                  <button
+                    key={t.slug || "all"}
+                    type="button"
+                    aria-pressed={draft.sub === t.slug}
+                    className={`${s.chip} ${draft.sub === t.slug ? s.chipOn : ""}`}
+                    onClick={() => setDraft((d) => ({ ...d, sub: t.slug }))}
+                  >
+                    {t.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {typeLabel && types.length > 1 && (
             <div className={s.section}>
               {head("type", typeLabel)}
               <div id="filter-type" className={s.settings} hidden={!isOpen("type")}>
@@ -304,6 +364,36 @@ export default function FilterDrawer({
               ))}
             </div>
           </div>
+          )}
+
+          {metals.length > 1 && (
+            <div className={s.section}>
+              {head("metal", "Metal")}
+              <div id="filter-metal" className={s.settings} hidden={!isOpen("metal")}>
+                {metals.map(([m, n]) => (
+                  <div key={m}>
+                    {check(m, n, draft.metals.includes(m), () =>
+                      setDraft((d) => ({ ...d, metals: toggle(d.metals, m) })),
+                    true)}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {colors.length > 1 && (
+            <div className={s.section}>
+              {head("color", "Metal Color")}
+              <div id="filter-color" className={s.settings} hidden={!isOpen("color")}>
+                {colors.map(([c, n]) => (
+                  <div key={c}>
+                    {check(c, n, draft.colors.includes(c), () =>
+                      setDraft((d) => ({ ...d, colors: toggle(d.colors, c) })),
+                    true)}
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
         </div>
 

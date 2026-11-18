@@ -7,7 +7,7 @@ import rawProducts from '@/data/products.json';
 import rawCategories from '@/data/categories.json';
 import rawPages from '@/data/pages.json';
 import { FASHION_LINES, styleSlug, typeName, typeSlug } from './catalog-rules.mjs';
-import type { CategoryTile, Collection, Crumb, Product } from './collections';
+import type { CategoryTile, Collection, Crumb, Product, TilesByDepartment } from './collections';
 
 type RawProduct = Omit<(typeof rawProducts)[number], 'attributes'> & { attributes: Record<string, string[] | undefined> };
 type RawCategory = (typeof rawCategories)[number];
@@ -51,6 +51,8 @@ function toProduct(p: RawProduct, noun: string, types: string[] = []): Product {
     shapes: (a.stoneShape ?? []).filter((s) => s !== 'No Diamonds'),
     settings: a.setting ?? [],
     types,
+    metals: a.metalType ?? [],
+    colors: a.metalColor ?? [],
   };
 }
 
@@ -209,7 +211,6 @@ const FASHION: Department = (() => {
     title: l.label,
     intro: catBySlug.get(l.wp)?.description || `Explore ${l.label.toLowerCase()} for your store. ${PRICING}`,
     heroImage: LINE_IMAGE[l.slug] ?? '/images/hero.jpg',
-    typeLabel: 'Product Type',
     products: l.items.map((p) => {
       const types = l.kids.filter((k) => p.categories.includes(k.slug)).map((k) => typeName(k.name));
       return toProduct(p, l.label, [...new Set(types)]);
@@ -265,6 +266,19 @@ const FASHION: Department = (() => {
     });
   });
 
+  // drawer "Product Type" links: the line's own page, then each of its type pages
+  for (const line of collections) {
+    const own = types.filter((t) => t.line === line.slug);
+    if (!own.length) continue;
+    const subTiles: CategoryTile[] = [
+      { slug: '', label: `All ${line.title}`, href: line.href, image: '' },
+      ...own.map((t) => ({ slug: t.slug, label: t.crumbs.at(-1)!.label, href: t.href, image: '' })),
+    ];
+    line.subTiles = subTiles;
+    line.subSlug = '';
+    for (const t of own) Object.assign(t, { tileSlug: line.slug, subTiles, subSlug: t.slug });
+  }
+
   const tiles = collections.map((c) => tile(c, LINE_IMAGE[c.slug] ? { image: LINE_IMAGE[c.slug] } : undefined));
   return { label: 'Fashion', href: '/fashion/', main, collections, tiles, types };
 })();
@@ -277,6 +291,13 @@ export function getCollection(dept: DepartmentKey, slug: string) {
 }
 
 export const FASHION_TYPES = FASHION.types!;
+
+/** Every department's category tiles, for the filter drawer's Department switch */
+export const TILES_BY_DEPARTMENT: TilesByDepartment = {
+  [BRIDAL.label]: BRIDAL.tiles,
+  [WEDDING_BANDS.label]: WEDDING_BANDS.tiles,
+  [FASHION.label]: FASHION.tiles,
+};
 export const getFashionType = (line: string, type: string) => FASHION_TYPES.find((t) => t.line === line && t.slug === type);
 
 // URL of a bridal style page by its name ("Split" → /bridal/split-shank/), if one exists

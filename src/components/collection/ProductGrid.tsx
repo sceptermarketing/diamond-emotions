@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { DEPARTMENTS, type CategoryTile, type Product } from '@/lib/collections';
+import { DEPARTMENTS, type CategoryTile, type Product, type TilesByDepartment } from '@/lib/collections';
 import FilterDrawer, { NO_FILTERS, type Applied } from './FilterDrawer';
 import s from './ProductGrid.module.css';
 
@@ -16,23 +16,29 @@ type SortId = (typeof SORTS)[number]['id'];
 
 type Props = {
   products: Product[];
-  tiles: CategoryTile[];
+  tilesByDept: TilesByDepartment;
   department: string;
   category: string;
+  subTiles?: CategoryTile[];
+  sub?: string;
   typeLabel?: string;
 };
 
-export default function ProductGrid({ products, tiles, department, category, typeLabel }: Props) {
+export default function ProductGrid({ products, tilesByDept, department, category, subTiles, sub = '', typeLabel }: Props) {
   const router = useRouter();
   const [shown, setShown] = useState(PAGE);
-  const [filters, setFilters] = useState<Applied>({ ...NO_FILTERS, department, category });
+  const here = { department, category, sub };
+  const [filters, setFilters] = useState<Applied>({ ...NO_FILTERS, ...here });
   const [sort, setSort] = useState<SortId>('style-asc');
   const [menu, setMenu] = useState<'sort' | null>(null);
   const [drawer, setDrawer] = useState(false);
   const toolsRef = useRef<HTMLDivElement>(null);
   const filterBtn = useRef<HTMLButtonElement>(null);
 
-  const active = filters.types.length + filters.stones.length + filters.shapes.length + filters.settings.length;
+  const active = (['types', 'stones', 'shapes', 'settings', 'metals', 'colors'] as const).reduce(
+    (n, k) => n + filters[k].length,
+    0,
+  );
 
   const closeDrawer = useCallback(() => {
     setDrawer(false);
@@ -40,24 +46,30 @@ export default function ProductGrid({ products, tiles, department, category, typ
   }, []);
 
   const apply = (next: Applied) => {
-    // another department or category lives on its own page
-    if (next.department !== department) {
+    // another department, category or product type lives on its own page
+    const deptChanged = next.department !== department;
+    if (next.category && (deptChanged || next.category !== category)) {
+      const t = tilesByDept[next.department]?.find((x) => x.slug === next.category);
+      if (t) router.push(t.href);
+    } else if (deptChanged) {
       const d = DEPARTMENTS.find((x) => x.label === next.department);
       if (d) router.push(d.href);
-    } else if (next.category !== category) {
-      const t = tiles.find((x) => x.slug === next.category);
+    } else if (next.sub !== sub) {
+      const t = subTiles?.find((x) => x.slug === next.sub);
       if (t) router.push(t.href);
     }
-    setFilters({ ...next, department, category });
+    setFilters({ ...next, ...here });
     setShown(PAGE);
     closeDrawer();
   };
 
   const list = useMemo(() => {
-    const { types, stones, shapes, settings } = filters;
+    const { types, stones, shapes, settings, metals, colors } = filters;
     const filtered = products.filter(
       (p) =>
         (!types.length || p.types.some((x) => types.includes(x))) &&
+        (!metals.length || p.metals.some((x) => metals.includes(x))) &&
+        (!colors.length || p.colors.some((x) => colors.includes(x))) &&
         (!stones.length || p.stones.some((x) => stones.includes(x))) &&
         (!shapes.length || p.shapes.some((x) => shapes.includes(x))) &&
         (!settings.length || p.settings.some((x) => settings.includes(x))),
@@ -141,7 +153,7 @@ export default function ProductGrid({ products, tiles, department, category, typ
         </div>
       </div>
 
-      <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} tiles={tiles} typeLabel={typeLabel} />
+      <FilterDrawer open={drawer} onClose={closeDrawer} onApply={apply} applied={filters} products={products} tilesByDept={tilesByDept} subTiles={subTiles} typeLabel={typeLabel} />
 
       <hr className={s.rule} />
 
@@ -172,7 +184,7 @@ export default function ProductGrid({ products, tiles, department, category, typ
       {list.length === 0 && (
         <p className={s.empty}>
           No styles match these filters.{' '}
-          <button type="button" onClick={() => setFilters({ ...NO_FILTERS, department, category })}>
+          <button type="button" onClick={() => setFilters({ ...NO_FILTERS, ...here })}>
             Clear filters
           </button>
         </p>
