@@ -1,13 +1,13 @@
 [
  {
   "from": "/product-category/diamond-fashion-rings/",
-  "to": "/fashion/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/rings/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/color-pendants/",
-  "to": "/fashion/color-fashion/",
+  "to": "/fashion/color-fashion/pendants/",
   "live": true,
   "kind": "category"
  },
@@ -19,7 +19,7 @@
  },
  {
   "from": "/product-category/silver-pendants/",
-  "to": "/fashion/sterling-silver/",
+  "to": "/fashion/sterling-silver/pendants/",
   "live": true,
   "kind": "category"
  },
@@ -37,13 +37,13 @@
  },
  {
   "from": "/product-category/pendants-diamond-fashion/",
-  "to": "/fashion/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/pendants/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/silver-earrings/",
-  "to": "/fashion/sterling-silver/",
+  "to": "/fashion/sterling-silver/earrings/",
   "live": true,
   "kind": "category"
  },
@@ -73,7 +73,7 @@
  },
  {
   "from": "/product-category/earrings-diamond-fashion/",
-  "to": "/fashion/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/earrings/",
   "live": true,
   "kind": "category"
  },
@@ -91,31 +91,31 @@
  },
  {
   "from": "/product-category/color-rings/",
-  "to": "/fashion/color-fashion/",
+  "to": "/fashion/color-fashion/rings/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/twistals-bracelets/",
-  "to": "/fashion/twistals/",
+  "to": "/fashion/twistals/bracelets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/bracelets-diamond-fashion/",
-  "to": "/fashion/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/bracelets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/twistals-earrings/",
-  "to": "/fashion/twistals/",
+  "to": "/fashion/twistals/earrings/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/twistals-cuffs/",
-  "to": "/fashion/twistals/",
+  "to": "/fashion/twistals/cuffs/",
   "live": true,
   "kind": "category"
  },
@@ -127,13 +127,13 @@
  },
  {
   "from": "/product-category/color-earrings/",
-  "to": "/fashion/color-fashion/",
+  "to": "/fashion/color-fashion/earrings/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/twistals-lariat/",
-  "to": "/fashion/twistals/",
+  "to": "/fashion/twistals/lariats/",
   "live": true,
   "kind": "category"
  },
@@ -175,7 +175,7 @@
  },
  {
   "from": "/product-category/bands/",
-  "to": "/fashion/diamond-fashion/",
+  "to": "/fashion/diamond-fashion/bands/",
   "live": true,
   "kind": "category"
  },
@@ -211,19 +211,19 @@
  },
  {
   "from": "/product-category/fancy-pendants/",
-  "to": "/fashion/fashion-jewelry/",
+  "to": "/fashion/fashion-jewelry/pendants/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/bracelet/",
-  "to": "/fashion/fashion-jewelry/",
+  "to": "/fashion/fashion-jewelry/bracelets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/earring/",
-  "to": "/fashion/fashion-jewelry/",
+  "to": "/fashion/fashion-jewelry/earrings/",
   "live": true,
   "kind": "category"
  },
@@ -337,31 +337,31 @@
  },
  {
   "from": "/product-category/earrings/",
-  "to": "/fashion/swarovski-crystal/",
+  "to": "/fashion/swarovski-crystal/earrings/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/pendants/",
-  "to": "/fashion/swarovski-crystal/",
+  "to": "/fashion/swarovski-crystal/pendants/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/bracelets/",
-  "to": "/fashion/swarovski-crystal/",
+  "to": "/fashion/swarovski-crystal/bracelets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/necklace/",
-  "to": "/fashion/swarovski-crystal/",
+  "to": "/fashion/swarovski-crystal/necklaces/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/bracelets-silver/",
-  "to": "/fashion/sterling-silver/",
+  "to": "/fashion/sterling-silver/bracelets/",
   "live": true,
   "kind": "category"
  },
@@ -397,19 +397,19 @@
  },
  {
   "from": "/product-category/necklaces/",
-  "to": "/fashion/sterling-silver/",
+  "to": "/fashion/sterling-silver/necklaces/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/necklaces-alloy/",
-  "to": "/fashion/fashion-jewelry/",
+  "to": "/fashion/fashion-jewelry/necklaces/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/sets-sterling-silver/",
-  "to": "/fashion/sterling-silver/",
+  "to": "/fashion/sterling-silver/sets/",
   "live": true,
   "kind": "category"
  },
@@ -421,31 +421,31 @@
  },
  {
   "from": "/product-category/necklaces-gerri-g-collection/",
-  "to": "/fashion/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/necklaces/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/bracelets-gerri-g-collection/",
-  "to": "/fashion/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/bracelets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/pendants-gerri-g-collection/",
-  "to": "/fashion/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/pendants/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/sets-gerri-g-collection/",
-  "to": "/fashion/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/sets/",
   "live": true,
   "kind": "category"
  },
  {
   "from": "/product-category/earrings-gerri-g-collection/",
-  "to": "/fashion/gerri-g-collection/",
+  "to": "/fashion/gerri-g-collection/earrings/",
   "live": true,
   "kind": "category"
  },

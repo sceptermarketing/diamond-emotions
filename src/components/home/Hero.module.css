@@ -205,3 +205,17 @@
     max-width: none;
   }
 }
+
+/* Desktop: the header's 81px menu bar sits over the top of the hero, so the hero grows by that much
+   and its copy and slider dots move down with it, keeping the designed layout below the bar. */
+@media (min-width: 1201px) {
+  .hero {
+    height: 841px;
+  }
+  .left {
+    padding-top: 105px;
+  }
+  .dots {
+    top: 760px;
+  }
+}
