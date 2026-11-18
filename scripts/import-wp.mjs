@@ -15,13 +15,13 @@
 //   faqs.json        FAQ entries
 //   portfolio.json   custom-work gallery items
 //   redirects.json   old URL → new URL, served by next.config.mjs (entries marked live)
-// and images to public/products/*.webp (product photos) and public/content/** (page, blog and gallery images).
+// and images to public/products/*.webp (product photos, 1200px; 600px card copies in public/products/card/) and public/content/** (page, blog and gallery images).
 //
 // The live site sits behind Cloudflare, which blocks fast bulk downloads. Images are fetched slowly, one at a
 // time, and the run stops at the first block instead of retrying; wait a while and run it again, or use --uploads.
 // Safe to re-run: images already on disk are skipped.
 
-import { mkdir, writeFile, access, readFile, copyFile } from 'node:fs/promises';
+import { mkdir, writeFile, access, readFile, readdir, copyFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -34,7 +34,10 @@ const WP = `${SITE}/wp-json/wp/v2`;
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_DIR = path.join(ROOT, 'src/data');
 const PUBLIC = path.join(ROOT, 'public');
-const PRODUCT_WIDTH = 800; // cards show ~300px wide; 800 covers 2x screens and a future detail page
+const PRODUCT_WIDTH = 1200; // product page gallery (the originals are 1200px)
+const CARD_WIDTH = 600; // collection cards show ~300px wide; 600 covers 2x screens
+// card-size copy of a product photo: /products/x.webp → /products/card/x.webp
+const cardPath = (dest) => dest.replace(/^\/products\//, '/products/card/');
 const CONTENT_WIDTH = 1600;
 const DELAY_MS = 1500; // pause between image downloads
 
@@ -212,7 +215,31 @@ class Blocked extends Error {}
 async function source(url) {
   if (uploadsDir) {
     const rel = decodeURIComponent(new URL(url).pathname.replace(/^\/wp-content\/uploads\//, ''));
-    return readFile(path.join(uploadsDir, rel));
+    try {
+      return await readFile(path.join(uploadsDir, rel));
+    } catch (e) {
+      // original not in the copy: fall back to the largest size WordPress made of it (name-800x800.jpg …)
+      const dir = path.join(uploadsDir, path.dirname(rel));
+      const ext = path.extname(rel);
+      const base = path.basename(rel, ext).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const pattern = new RegExp(`^${base}(?:-scaled)?(?:-(\\d+)x(\\d+))?${ext.replace('.', '\\.')}$`, 'i');
+      const sizes = (await readdir(dir).catch(() => []))
+        .map((f) => ({ f, m: f.match(pattern) }))
+        .filter((x) => x.m)
+        .map((x) => ({ f: x.f, area: x.m[1] ? Number(x.m[1]) * Number(x.m[2]) : Infinity }))
+        .sort((a, b) => b.area - a.area);
+      if (sizes.length) return readFile(path.join(dir, sizes[0].f));
+      // a resized copy (name-500x500.jpg, name-scaled-500x667.jpg) missing from a copy that has only
+      // originals: use the original (name.jpg, or name-scaled.jpg)
+      const m = rel.match(/^(.*?)(-scaled)?-\d+x\d+(\.[a-z]+)$/i);
+      if (!m) throw e;
+      for (const candidate of [`${m[1]}${m[2] ?? ''}${m[3]}`, `${m[1]}-scaled${m[3]}`, `${m[1]}${m[3]}`]) {
+        try {
+          return await readFile(path.join(uploadsDir, candidate));
+        } catch {}
+      }
+      throw e;
+    }
   }
   const res = await fetch(url, { headers: UA });
   if (res.status === 403 || res.status === 429) throw new Blocked(String(res.status));
@@ -229,7 +256,8 @@ async function saveImages() {
   for (const [dest, { url, kind }] of list) {
     n++;
     const file = path.join(PUBLIC, dest);
-    if (!force && (await exists(file))) {
+    const card = kind === 'product' ? path.join(PUBLIC, cardPath(dest)) : null;
+    if (!force && (await exists(file)) && (!card || (await exists(card)))) {
       skipped++;
       continue;
     }
@@ -237,11 +265,16 @@ async function saveImages() {
       await mkdir(path.dirname(file), { recursive: true });
       if (dest.endsWith('.webp')) {
         const width = kind === 'product' ? PRODUCT_WIDTH : CONTENT_WIDTH;
-        let img = sharp(await source(url))
-          .rotate()
-          .resize({ width, height: width, fit: 'inside', withoutEnlargement: true });
-        if (kind === 'product') img = img.flatten({ background: '#ffffff' });
-        await img.webp({ quality: 80 }).toFile(file);
+        const original = await source(url);
+        const convert = (w) => {
+          const img = sharp(original).rotate().resize({ width: w, height: w, fit: 'inside', withoutEnlargement: true });
+          return (kind === 'product' ? img.flatten({ background: '#ffffff' }) : img).webp({ quality: 80 });
+        };
+        await convert(width).toFile(file);
+        if (card) {
+          await mkdir(path.dirname(card), { recursive: true });
+          await convert(CARD_WIDTH).toFile(card);
+        }
       } else if (uploadsDir) {
         const rel = decodeURIComponent(new URL(url).pathname.replace(/^\/wp-content\/uploads\//, ''));
         await copyFile(path.join(uploadsDir, rel), file);

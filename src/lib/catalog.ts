@@ -38,12 +38,14 @@ function cardName(p: RawProduct, noun: string) {
 function toProduct(p: RawProduct, noun: string, types: string[] = []): Product {
   const a = p.attributes;
   const photo = photosOf(p)[0];
+  // cards use the 600px copy made by the importer, when it exists
+  const card = photo && photo.src.replace(/^\/products\//, '/products/card/');
   return {
     slug: p.slug,
     href: `/product/${p.slug}/`,
     style: p.style,
     name: cardName(p, noun),
-    image: photo?.src ?? null,
+    image: card && onDisk(card) ? card : photo?.src ?? null,
     alt: photo?.alt || `${p.style} ${noun}`.trim(),
     stones: a.stoneType ?? [],
     shapes: (a.stoneShape ?? []).filter((s) => s !== 'No Diamonds'),
