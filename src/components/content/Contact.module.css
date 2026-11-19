@@ -1,0 +1,144 @@
+/* Contact page sidebar: a green card with an icon beside each way to reach the team */
+.card {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 36px 32px;
+  border-radius: 20px;
+  background:
+    radial-gradient(420px 260px at 100% 0%, rgba(234, 229, 218, 0.14), transparent 70%),
+    var(--forest);
+  color: var(--white);
+  font-family: var(--font-inter);
+  box-shadow: 0 24px 52px rgba(32, 40, 36, 0.22);
+}
+.eyebrow {
+  color: var(--sand);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.title {
+  margin-bottom: 12px;
+  font-size: 34px;
+  line-height: 1.1;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--forest);
+}
+.label {
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.value {
+  display: block;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-decoration: none;
+  overflow-wrap: break-word;
+}
+a.value:hover,
+.link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--sand);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.note {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+}
+.hours div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.hours dt {
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+.hours dd {
+  margin: 0;
+  color: var(--white);
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+.card a:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+
+@media (max-width: 880px) {
+  .card {
+    position: static;
+  }
+}
+@media (max-width: 640px) {
+  .card {
+    padding: 28px 22px;
+  }
+  .title {
+    font-size: 28px;
+  }
+  .item {
+    gap: 14px;
+  }
+  .icon {
+    width: 42px;
+    height: 42px;
+  }
+  .value {
+    font-size: 15px;
+  }
+  /* keep the email address on one line */
+  a.value[href^='mailto:'] {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
