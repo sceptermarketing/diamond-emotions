@@ -33,7 +33,7 @@ export default function AboutPage() {
         </Link>
       </PageIntro>
       <TrustBar />
-      <OurStory />
+      <OurStory full />
       <WhyPartner />
       <Milestones />
     </PageShell>
