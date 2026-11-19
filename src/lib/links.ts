@@ -5,7 +5,7 @@ export const PHONE_HREF = 'tel:+15175744209';
 export const PHONE_DISPLAY = '(517) 574-4209'; // as written in the menu design
 export const ADDRESS = ['2844 East Grand River Ave', 'East Lansing, MI 48823'] as const;
 // from the old site's Contact page
-export const EMAIL = 'sales@diamondemotions.com';
+export const EMAIL = 'rick@diamondemotions.com';
 export const FAX = '517.913.6288';
 export const HOURS = [
   ['Monday – Friday', '9:00am – 5:30pm'],

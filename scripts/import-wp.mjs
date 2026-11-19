@@ -90,10 +90,13 @@ const decode = (s = '') =>
     return Number.isFinite(n) ? String.fromCodePoint(n) : m;
   });
 
+// the site's contact email: the old sales@ address becomes Rick's
+const siteEmail = (s) => s.replace(/sales@diamondemotions\.com/gi, 'rick@diamondemotions.com');
+
 const DROP_BLOCKS = /<(script|style|noscript|svg|form|iframe|template|button|select|textarea)\b[\s\S]*?<\/\1>/gi;
 
 const text = (html = '') =>
-  decode(
+  siteEmail(decode(
     html
       .replace(DROP_BLOCKS, ' ')
       .replace(/<br\s*\/?>/gi, '\n')
@@ -102,7 +105,7 @@ const text = (html = '') =>
   )
     .replace(/[ \t ]+/g, ' ')
     .replace(/ ?\n[\s]*/g, '\n')
-    .trim();
+    .trim());
 
 const escapeAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const attr = (tag, name) => {
@@ -137,7 +140,7 @@ function localHref(href) {
 // and drops its layout wrappers, inline styles and scripts.
 function clean(html, register) {
   const images = [];
-  const out = html
+  const out = siteEmail(html)
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(DROP_BLOCKS, '')
     .replace(/<\/?([a-z][a-z0-9]*)\b[^>]*>/gi, (tag, name) => {
