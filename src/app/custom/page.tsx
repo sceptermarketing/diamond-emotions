@@ -22,8 +22,6 @@ export default function CustomPage() {
         crumbs={[{ label: 'Home', href: '/' }, { label: 'Custom' }]}
         title="Custom Jewelry"
         text="At Diamond Emotions, we craft unique, one-of-a-kind custom jewelry pieces for customers of our retailers. We can make custom pieces based on any of the designs below, or on a design that you send."
-        image="/content/2016/10/custom-main-banner2.webp"
-        imagePosition="100% 50%"
       >
         <Link href={LINKS.customOrder} className="btn btn-sm btn-dark">
           Start a Custom Order
