@@ -79,7 +79,14 @@ export default function StoreMap({ stores, origin, selected, onSelect }: Props) 
             iconSize: leaflet.point(40, 40),
           }),
       });
-      const icon = leaflet.divIcon({ className: s.pin, html: '<span></span>', iconSize: [28, 36], iconAnchor: [14, 34], popupAnchor: [0, -30] });
+      // map pin drawn at its true proportions (24 × 32), tip at the bottom centre
+      const icon = leaflet.divIcon({
+        className: s.pin,
+        html: '<svg width="27" height="36" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 0C5.37 0 0 5.3 0 11.85 0 20.74 12 32 12 32s12-11.26 12-20.15C24 5.3 18.63 0 12 0z" fill="#202824"/><circle cx="12" cy="11.85" r="4.6" fill="#eae5da"/></svg>',
+        iconSize: [27, 36],
+        iconAnchor: [13.5, 36],
+        popupAnchor: [0, -32],
+      });
       for (const st of stores) {
         const mk = leaflet.marker([st.lat, st.lng], { icon, title: st.name, alt: st.name });
         mk.bindPopup(

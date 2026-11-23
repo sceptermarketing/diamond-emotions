@@ -16,3 +16,85 @@
   font-size: 13px;
   color: var(--muted);
 }
+
+/* With a photo: the Custom Design Process hero (Figma 916:493) — copy half | photo half, 510px tall.
+   Classes are doubled so they win over the shared collection-intro rules whatever order the CSS loads in. */
+.large.large {
+  min-height: 510px;
+  background: #f8f7f4;
+}
+.copyLarge.copyLarge {
+  flex: none;
+  justify-content: flex-start;
+  width: calc(var(--g) + var(--col) * 0.5);
+  padding: 33px 80px 70px var(--edge);
+}
+.crumbsLarge.crumbsLarge {
+  margin-bottom: 40px;
+  color: #4c4e48;
+  font-size: 13px;
+  line-height: 1.5;
+}
+/* the title block sits in the middle of the space under the breadcrumb */
+.titleLarge.titleLarge {
+  margin-top: auto;
+  color: #1a1c1a;
+  font-size: 64px;
+  line-height: 1.02;
+}
+.copyLarge > :last-child {
+  margin-bottom: auto;
+}
+.textLarge.textLarge {
+  max-width: 520px;
+  color: #4c4e48;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.photoLarge.photoLarge {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .copyLarge.copyLarge {
+    padding-right: 48px;
+  }
+  .titleLarge.titleLarge {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 880px) {
+  .large.large {
+    min-height: 0;
+  }
+  .copyLarge.copyLarge {
+    width: 100%;
+    padding: 28px var(--edge) 44px;
+  }
+  .titleLarge.titleLarge {
+    margin-top: 0;
+  }
+  .copyLarge > :last-child {
+    margin-bottom: 0;
+  }
+  .photoLarge.photoLarge {
+    flex: none;
+    width: 100%;
+    height: 320px;
+  }
+}
+
+@media (max-width: 640px) {
+  .titleLarge.titleLarge {
+    font-size: 40px;
+  }
+  .textLarge.textLarge {
+    font-size: 16px;
+  }
+  .photoLarge.photoLarge {
+    height: 240px;
+  }
+}

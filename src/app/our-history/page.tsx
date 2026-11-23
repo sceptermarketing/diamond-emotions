@@ -25,7 +25,7 @@ export default function OurHistoryPage() {
       />
       <section className={l.section}>
         <div className={l.split}>
-          <Prose html={pageHtml('our-history')} />
+          <Prose html={pageHtml('our-history')} className={l.proseFull} />
           <aside className={l.aside}>
             <h2 className={l.asideTitle}>Partner With Us</h2>
             <p>Diamond Emotions works only with independent jewelers. See how we help you sell more bridal.</p>

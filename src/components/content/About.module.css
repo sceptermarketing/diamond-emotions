@@ -1,0 +1,404 @@
+/* About page, Figma 910:1565 (1440 wide): photo panels take 816 / 624 of the width, text sits on the 80px page edge */
+.hero,
+.story,
+.message,
+.company,
+.cta {
+  font-family: var(--font-inter);
+}
+
+.eyebrow {
+  color: #4c4e48;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.eyebrowLight {
+  color: #e6e6dc;
+}
+.body {
+  color: #4c4e48;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* 01 · Our History: ivory copy panel (624) + photo (816) */
+.hero {
+  display: flex;
+  min-height: 496px;
+  background: #f8f7f4;
+}
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
+  flex-shrink: 0;
+  width: calc(var(--g) + var(--col) * 0.43333);
+  padding: 34px 80px 64px var(--edge);
+}
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  color: #4c4e48;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.crumbs a {
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--forest);
+  text-decoration: underline;
+}
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 464px;
+}
+.heroTitle {
+  color: #1a1c1a;
+  font-size: 76px;
+  line-height: 1.02;
+}
+.heroText .body {
+  max-width: 450px;
+}
+.heroPhoto {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.heroPhoto img,
+.messagePhoto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 02 · Full founding history: 403 | 89 gap | 788 */
+.story {
+  display: grid;
+  grid-template-columns: minmax(0, 403fr) minmax(0, 788fr);
+  column-gap: 89px;
+  align-items: start;
+  padding: 76px var(--edge);
+  background: var(--white);
+}
+.storyLead {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.storyTitle {
+  color: #1a1c1a;
+  font-size: 55px;
+  line-height: 1.06;
+}
+.storyRule,
+.visitRule {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: #dad7cc;
+}
+.storyRule {
+  max-width: 336px;
+}
+.year {
+  color: var(--forest);
+  font-family: var(--font-serif);
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1;
+}
+.storyText {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.storyText .body {
+  max-width: 95.43%; /* 752 of 788 */
+}
+/* a hairline between the paragraphs */
+.storyText .body:not(:last-child) {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #dad7cc;
+}
+
+/* 03 · Rick's message: photo (624) + dark panel (816) */
+.message {
+  display: flex;
+  min-height: 616px;
+  background: var(--forest);
+}
+.messagePhoto {
+  position: relative;
+  flex-shrink: 0;
+  width: calc(var(--g) + var(--col) * 0.43333);
+  overflow: hidden;
+}
+.messagePanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 21px;
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 52px var(--edge) 52px 80px;
+}
+.messagePanel > * {
+  max-width: 656px;
+}
+.messageTitle {
+  color: var(--white);
+  font-size: 49px;
+  line-height: 1.1;
+}
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 636px;
+  margin: 0;
+  padding-bottom: 21px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  color: #e6e6dc;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.by {
+  color: var(--white);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* 04 · Our Company: heading, then form card (772) | 58 gap | contact card (450) */
+.company {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 68px var(--edge);
+  background: #f8f7f4;
+}
+.companyHead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.companyTitle {
+  color: #1a1c1a;
+  font-size: 53px;
+  line-height: 1.1;
+}
+.companyGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 772fr) minmax(0, 450fr);
+  column-gap: 58px;
+  align-items: start;
+}
+.formCard {
+  padding: 30px 32px;
+  border: 1px solid #dad7cc;
+  border-radius: 8px;
+  background: var(--white);
+}
+.visit {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px;
+  border-radius: 8px;
+  background: var(--sand);
+}
+.visitTitle {
+  color: #1a1c1a;
+  font-size: 38px;
+  line-height: 1.1;
+}
+.address {
+  color: #1a1c1a;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--forest);
+  font-size: 16px;
+  line-height: 1.56;
+  overflow-wrap: anywhere;
+}
+.lines a {
+  text-decoration: none;
+}
+.lines a:hover {
+  text-decoration: underline;
+}
+
+/* 05 · Let's Talk Jewelry */
+.cta {
+  position: relative;
+  min-height: 342px;
+  overflow: hidden;
+  background: var(--forest);
+}
+.ctaBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ctaShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #202824 33.432%, rgba(32, 40, 36, 0.3) 73.367%);
+}
+.ctaInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  min-height: 342px;
+  padding: 58px var(--edge);
+}
+.ctaTitle {
+  max-width: 640px;
+  color: var(--white);
+  font-size: 56px;
+  line-height: 1.1;
+}
+.ctaText {
+  max-width: 610px;
+  color: #e6e6dc;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.ctaBtn {
+  padding: 15px 20px;
+  border-radius: 8px;
+  background: var(--white);
+  color: #1a1c1a;
+  font-size: 14px;
+  line-height: 1.45;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s;
+}
+.ctaBtn:hover {
+  opacity: 0.88;
+}
+
+@media (max-width: 1200px) {
+  .heroCopy {
+    padding-right: 48px;
+  }
+  .heroTitle {
+    font-size: 60px;
+  }
+  .storyTitle,
+  .companyTitle,
+  .ctaTitle {
+    font-size: 46px;
+  }
+  .messageTitle {
+    font-size: 42px;
+  }
+  .year {
+    font-size: 64px;
+  }
+  .story {
+    column-gap: 56px;
+  }
+  .messagePanel {
+    padding-left: 56px;
+  }
+  .companyGrid {
+    column-gap: 32px;
+  }
+}
+
+@media (max-width: 880px) {
+  .hero,
+  .message {
+    flex-direction: column;
+  }
+  .heroCopy {
+    width: 100%;
+    gap: 40px;
+    padding: 28px var(--edge) 44px;
+  }
+  .heroPhoto,
+  .messagePhoto {
+    flex: none;
+    width: 100%;
+    height: 320px;
+  }
+  .messagePanel {
+    padding: 56px var(--edge);
+  }
+  .story {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 36px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .storyText .body {
+    max-width: none;
+  }
+  .company {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .companyGrid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroTitle {
+    font-size: 46px;
+  }
+  .storyTitle,
+  .companyTitle,
+  .ctaTitle {
+    font-size: 38px;
+  }
+  .messageTitle {
+    font-size: 34px;
+  }
+  .year {
+    font-size: 56px;
+  }
+  .body,
+  .quote {
+    font-size: 16px;
+  }
+  .heroPhoto,
+  .messagePhoto {
+    height: 240px;
+  }
+  .formCard {
+    padding: 24px 20px;
+  }
+  .visit {
+    padding: 24px;
+  }
+  .visitTitle {
+    font-size: 32px;
+  }
+}

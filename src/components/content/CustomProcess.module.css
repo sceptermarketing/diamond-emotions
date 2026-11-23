@@ -1,271 +1,429 @@
-/* Custom Design Process page (old site's content and images, new site's type and colours) */
-.section {
-  max-width: var(--page);
-  margin: 0 auto;
-  padding: 72px var(--pad);
+/* Custom Design Process, Figma 916:461 (1440 wide, 80px page edge) */
+.hero,
+.how,
+.stages,
+.metals,
+.band,
+.inquiry {
   font-family: var(--font-inter);
 }
-.tinted {
-  background: var(--mist);
-}
+
 .eyebrow {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  color: #4c4e48;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.heading {
-  color: #171b18;
-  font-size: 44px;
-  line-height: 1.08;
+.eyebrowLight {
+  color: #e6e6dc;
 }
-.lead {
-  max-width: 560px;
-  color: var(--body);
-  font-size: 16px;
-  line-height: 1.7;
-}
-.lead a {
-  color: var(--forest);
-  font-weight: 600;
+.body {
+  color: #4c4e48;
+  font-size: 17px;
+  line-height: 1.65;
 }
 
-/* How it works: "Are you creative…?" image beside the three steps */
+/* 01 · Hero: ivory copy half + photo half */
+.hero {
+  display: flex;
+  min-height: 510px;
+  background: #f8f7f4;
+}
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 79px;
+  flex-shrink: 0;
+  width: calc(var(--g) + var(--col) * 0.5);
+  padding: 33px 80px 70px var(--edge);
+}
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  color: #4c4e48;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.crumbs a {
+  text-decoration: none;
+}
+.crumbs a:hover {
+  color: var(--forest);
+  text-decoration: underline;
+}
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  max-width: 464px;
+}
+.heroTitle {
+  color: #1a1c1a;
+  font-size: 69px;
+  line-height: 1;
+}
+.heroPhoto {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+}
+.heroPhoto img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 02 · How it Works: collage (620) | 122 gap | index (490) */
 .how {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  gap: 64px;
+  grid-template-columns: minmax(0, 620fr) minmax(0, 490fr);
+  column-gap: 122px;
   align-items: center;
+  padding: 72px var(--edge);
+  background: var(--white);
+  scroll-margin-top: 90px;
 }
 .howImage {
   width: 100%;
   height: auto;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
-.howCopy {
+.howIndex {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 26px;
+}
+.howTitle {
+  color: #1a1c1a;
+  font-size: 50px;
+  line-height: 1.1;
 }
 .stepLinks {
   display: flex;
   flex-direction: column;
-  margin: 12px 0 0;
+  gap: 16px;
+  max-width: 416px;
+  margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid #e5e7eb;
 }
 .stepLinks a {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 18px 0;
-  border-bottom: 1px solid #e5e7eb;
-  color: #171b18;
-  font-size: 17px;
-  font-weight: 500;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #dad7cc;
+  color: #202824;
+  font-size: 15px;
+  line-height: 1.5;
   text-decoration: none;
-  transition: padding-left 0.25s ease, color 0.2s ease;
+  text-transform: uppercase;
 }
-.stepLinks a:hover {
-  padding-left: 6px;
-  color: var(--forest);
+.stepLinks a img {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
-.num {
-  color: var(--muted);
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1;
+.stepLinks a:hover img {
+  transform: translateX(4px);
 }
 
-/* the three steps */
-.steps {
+/* 03 · The three stages: 408 | 28 | 408 | 28 | 408 */
+.stages {
+  padding: 66px var(--edge);
+  background: #f8f7f4;
+}
+.stageList {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 28px;
   margin: 0;
   padding: 0;
   list-style: none;
-  counter-reset: step;
 }
-.step {
+.stage {
   display: flex;
   flex-direction: column;
+  scroll-margin-top: 90px;
+}
+.stageImage {
+  position: relative;
+  aspect-ratio: 408 / 385;
+  margin-bottom: 24px;
   overflow: hidden;
-  border-radius: 18px;
-  background: var(--white);
-  scroll-margin-top: 140px;
-}
-.stepImage {
-  aspect-ratio: 1;
-  padding: 24px;
   background: var(--white);
 }
-.stepImage img {
+.stageImage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stageTitle {
+  margin-bottom: 12px;
+  color: #1a1c1a;
+  font-size: 32px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.stageText {
+  max-width: 384px;
+  color: #4c4e48;
+  font-size: 16px;
+  line-height: 1.61;
+}
+
+/* 04 · Metal options: copy | 90 gap | ring photo (414 high) */
+.metals {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  padding: 65px var(--edge);
+  background: var(--white);
+}
+.metalsCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  flex-shrink: 0;
+}
+.metalsTitle {
+  color: #1a1c1a;
+  font-size: 53px;
+  line-height: 1.03;
+  white-space: nowrap; /* one line in the design */
+}
+.metalsCopy .body {
+  max-width: 460px;
+}
+.metalsImage {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 414px;
+}
+.metalsImage img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.stepBody {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 10px;
-  padding: 24px 28px 30px;
-  border-top: 1px solid #eef0ec;
-}
-.stepNum {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.stepTitle {
-  color: #171b18;
-  font-size: 32px;
-  line-height: 1.1;
-}
-.stepText {
-  color: var(--body);
-  font-size: 15px;
-  line-height: 1.7;
-}
 
-/* Which color do you want? */
-.color {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-  gap: 64px;
-  align-items: center;
+/* 05 · View Our Designs band */
+.band {
+  position: relative;
+  min-height: 336px;
+  overflow: hidden;
+  background: var(--forest);
 }
-.colorCopy {
+.bandBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bandShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #202824 33.432%, rgba(32, 40, 36, 0.3) 73.367%);
+}
+.bandInner {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
-}
-.colorImage {
-  width: 100%;
-  height: auto;
-}
-.metals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 22px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: #171b18;
-  font-size: 14px;
-  font-weight: 500;
-}
-.metals li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.swatch {
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: 50%;
-}
-
-/* Check out our new custom design pieces! */
-.band {
-  background: var(--forest);
-  color: var(--white);
-}
-.bandInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  max-width: var(--page);
-  margin: 0 auto;
-  padding: 72px var(--pad);
-  font-family: var(--font-inter);
-  text-align: center;
+  justify-content: center;
+  gap: 21px;
+  min-height: 336px;
+  padding: 59px var(--edge);
 }
 .bandTitle {
-  font-size: 44px;
-  line-height: 1.1;
-}
-.bandText {
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  max-width: 690px;
+  color: var(--white);
+  font-size: 51px;
+  line-height: 1.05;
 }
 
-/* contact form */
-.ask {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 64px;
-  align-items: start;
-}
-.ask > div:first-child {
+/* 06 · Inquiry: heading, then form (772) | 58 | call card (450) */
+.inquiry {
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  padding: 68px var(--edge);
+  background: #f8f7f4;
+}
+.inquiryHead {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.inquiryTitle {
+  color: #1a1c1a;
+  font-size: 50px;
+  line-height: 1.09;
+}
+.inquiryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 772fr) minmax(0, 450fr);
+  column-gap: 58px;
+  align-items: start;
+}
+.formCard {
+  padding: 30px 32px;
+  border: 1px solid #dad7cc;
+  border-radius: 8px;
+  background: var(--white);
+}
+.call {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
+  padding: 34px 30px;
+  border-radius: 8px;
+  background: var(--sand);
+}
+.callTitle {
+  color: #1a1c1a;
+  font-size: 40px;
+  line-height: 1.1;
+}
+.callText {
+  color: #4c4e48;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 @media (max-width: 1200px) {
-  .how,
-  .color,
-  .ask {
-    gap: 40px;
+  .heroCopy {
+    padding-right: 48px;
   }
-  .heading,
+  .heroTitle {
+    font-size: 56px;
+  }
+  .howTitle,
+  .metalsTitle,
+  .inquiryTitle,
   .bandTitle {
-    font-size: 38px;
+    font-size: 44px;
+  }
+  .how {
+    column-gap: 56px;
+  }
+  .metals {
+    gap: 48px;
+  }
+  .metalsCopy {
+    flex-shrink: 1;
+    max-width: 420px;
+  }
+  .metalsTitle {
+    white-space: normal;
+  }
+  .stageTitle {
+    font-size: 26px;
+  }
+  .inquiryGrid {
+    column-gap: 32px;
   }
 }
 
 @media (max-width: 880px) {
-  .how,
-  .color,
-  .ask {
+  .hero {
+    flex-direction: column;
+  }
+  .heroCopy {
+    width: 100%;
+    gap: 40px;
+    padding: 28px var(--edge) 44px;
+  }
+  .heroPhoto {
+    flex: none;
+    width: 100%;
+    height: 320px;
+  }
+  .how {
     grid-template-columns: minmax(0, 1fr);
+    row-gap: 36px;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
-  .steps {
+  .stepLinks {
+    max-width: none;
+  }
+  .stages {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .stageList {
     grid-template-columns: minmax(0, 1fr);
+    gap: 44px;
+    max-width: 480px;
+    margin: 0 auto;
   }
-  .step {
-    display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  .metals {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    padding-top: 56px;
+    padding-bottom: 56px;
   }
-  .stepBody {
-    border-top: 0;
-    border-left: 1px solid #eef0ec;
+  .metalsCopy {
+    max-width: none;
+  }
+  .metalsImage {
+    flex: none;
+    height: auto;
+    aspect-ratio: 1400 / 867;
+  }
+  .inquiry {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .inquiryGrid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
-  .section,
-  .bandInner {
-    padding-top: 48px;
-    padding-bottom: 48px;
+  .heroTitle {
+    font-size: 44px;
   }
-  .heading,
+  .howTitle,
+  .metalsTitle,
+  .inquiryTitle,
   .bandTitle {
-    font-size: 30px;
+    font-size: 36px;
   }
-  .step {
-    display: flex;
+  .callTitle {
+    font-size: 32px;
   }
-  .stepBody {
-    border-top: 1px solid #eef0ec;
-    border-left: 0;
+  .body {
+    font-size: 16px;
   }
-  .stepTitle {
-    font-size: 26px;
+  .heroPhoto {
+    height: 240px;
+  }
+  .formCard {
+    padding: 24px 20px;
+  }
+  .call {
+    padding: 28px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stepLinks a img {
+    transition: none;
   }
 }

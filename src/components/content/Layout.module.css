@@ -260,3 +260,8 @@ a.card:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* imported page text that fills its column (no 820px reading cap), e.g. Our History */
+div.proseFull {
+  max-width: none;
+}

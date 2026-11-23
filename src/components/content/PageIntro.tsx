@@ -13,18 +13,22 @@ type Props = {
   children?: ReactNode; // buttons or meta under the text
 };
 
-/** Inner-page intro in the collection page's style: ivory panel, breadcrumb, serif title, photo on the right */
+/**
+ * Inner-page intro: ivory panel, breadcrumb, serif title.
+ * With a photo it takes the Custom Design Process hero layout (Figma 916:493): half copy, half photo, 510px tall.
+ */
 export default function PageIntro({ crumbs, title, text, image, imagePosition, children }: Props) {
+  const large = Boolean(image);
   return (
-    <section className={`${s.section} ${image ? '' : p.noPhoto}`}>
-      <div className={s.copy}>
-        <Crumbs items={crumbs} className={s.crumbs} />
-        <h1 className={s.title}>{title}</h1>
-        {text && <div className={`${s.text} ${p.text}`}>{text}</div>}
+    <section className={`${s.section} ${large ? p.large : p.noPhoto}`}>
+      <div className={`${s.copy} ${large ? p.copyLarge : ''}`}>
+        <Crumbs items={crumbs} className={`${s.crumbs} ${large ? p.crumbsLarge : ''}`} />
+        <h1 className={`${s.title} ${large ? p.titleLarge : ''}`}>{title}</h1>
+        {text && <div className={`${s.text} ${p.text} ${large ? p.textLarge : ''}`}>{text}</div>}
         {children && <div className={p.extra}>{children}</div>}
       </div>
       {image && (
-        <div className={s.photo}>
+        <div className={`${s.photo} ${p.photoLarge}`}>
           <img src={image} alt="" fetchPriority="high" style={imagePosition ? { objectPosition: imagePosition } : undefined} />
         </div>
       )}

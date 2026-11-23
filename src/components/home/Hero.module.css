@@ -72,16 +72,28 @@
 .photo.current {
   opacity: 1;
 }
-/* Same crop as the Figma fill */
-/* Figma's crop at 1440 (left -83.86%, width 186.81% of the 925px column), anchored to the right
-   edge so wider screens show more of the photo instead of stretching it. */
+/* the slider banners fill the column; each slide sets its own focal point (object-position) */
 .photo img {
   position: absolute;
-  top: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 7s ease-out;
+}
+/* the showing slide drifts in slowly */
+.photo.current img {
+  transform: scale(1.08);
+}
+/* the original hero photo: Figma's crop at 1440 (left -83.86%, width 186.81% of the 925px column),
+   anchored to the right edge so wider screens show more of the photo instead of stretching it */
+.photo img.figmaCrop {
+  left: auto;
   right: -27.3px;
   width: max(1728px, calc(100% + 27.3px));
-  height: 100%;
   max-width: none;
+  object-fit: fill;
 }
 .shade {
   position: absolute;
@@ -128,7 +140,7 @@
 
 /* Very wide screens: fill the column without stretching the photo */
 @media (min-width: 1921px) {
-  .photo img {
+  .photo img.figmaCrop {
     right: 0;
     width: 100%;
     object-fit: cover;
@@ -137,6 +149,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .photo img,
+  .photo.current img {
+    transform: none;
+    transition: none;
+  }
   .photo,
   .dots button {
     transition: none;
@@ -154,7 +171,7 @@
   .title {
     font-size: 40px;
   }
-  .photo img {
+  .photo img.figmaCrop {
     left: 0;
     right: 0;
     width: 100%;

@@ -306,30 +306,22 @@
   color: var(--forest);
   font-weight: 600;
 }
-/* store marker: forest pin */
-.pin {
+/* store marker: forest pin (SVG). Doubled class so these win over leaflet.css, which loads later. */
+.pin.pin {
   border: 0;
   background: none;
 }
-.pin span {
-  position: absolute;
-  inset: 0;
-  border-radius: 50% 50% 50% 0;
-  background: var(--forest);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transform: rotate(-45deg) scale(0.78);
+.pin svg {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.28));
 }
-.pin span::after {
-  content: '';
-  position: absolute;
-  inset: 32%;
-  border-radius: 50%;
-  background: var(--sand);
-}
-/* grouped markers */
-.cluster {
-  display: grid;
-  place-items: center;
+/* grouped markers: the count sits in the middle of the circle */
+.cluster.cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   border: 3px solid rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   background: var(--forest);
@@ -337,7 +329,13 @@
   font-family: var(--font-inter);
   font-size: 13px;
   font-weight: 600;
+  line-height: 1;
+  text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.cluster span {
+  display: block;
+  line-height: 1;
 }
 
 @media (max-width: 1200px) {

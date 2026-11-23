@@ -3,13 +3,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import s from './Hero.module.css';
 
-// Placeholder slides: all use the current hero photo until the client sends the others.
-const SLIDES = [
-  { src: '/images/hero.jpg', alt: '' },
-  { src: '/images/hero.jpg', alt: '' },
-  { src: '/images/hero.jpg', alt: '' },
-  { src: '/images/hero.jpg', alt: '' },
-  { src: '/images/hero.jpg', alt: '' },
+// The live site's home slider (Slider Revolution "Spring" set, uploads/2024/03/Diamonemotions-1…6).
+// The printed DIAMOND EMOTIONS wordmark has been removed from these copies; the banners are 2.4:1 and
+// the column is nearly square, so each one is cropped on its jewelry.
+// The first slide is the site's own hero photo, kept on its Figma crop (figma: true).
+type Slide = { src: string; alt: string; pos?: string; figma?: boolean };
+const SLIDES: Slide[] = [
+  { src: '/images/hero.jpg', alt: '', figma: true },
+  { src: '/images/hero/slide-1.webp', alt: 'Emerald and ruby teardrop pendants among cherry blossoms', pos: '90% 50%' },
+  { src: '/images/hero/slide-2.webp', alt: 'Sapphire-blue pendant and drop earrings with spring flowers', pos: '36% 50%' },
+  { src: '/images/hero/slide-3.webp', alt: 'Hexagon sapphire earrings and necklace with red roses', pos: '64% 50%' },
+  { src: '/images/hero/slide-4.webp', alt: 'Aquamarine pendant against a blue sky', pos: '74% 50%' },
+  { src: '/images/hero/slide-5.webp', alt: 'Pearl earrings and pendant on wood with spring flowers', pos: '72% 50%' },
+  { src: '/images/hero/slide-6.webp', alt: 'Garnet and amethyst halo pendants and earrings with daisies', pos: '22% 50%' },
 ];
 
 const DELAY = 5000;
@@ -60,6 +66,8 @@ export default function HeroSlider() {
           <img
             src={slide.src}
             alt={slide.alt}
+            className={slide.figma ? s.figmaCrop : undefined}
+            style={slide.pos ? { objectPosition: slide.pos } : undefined}
             draggable={false}
             loading={i === 0 ? 'eager' : 'lazy'}
             fetchPriority={i === 0 ? 'high' : undefined}
